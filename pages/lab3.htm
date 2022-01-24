@@ -1,0 +1,1216 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="do.sibsutis.ru">
+
+  <title>Лабораторная работа 3. Базы данных</title>
+	
+	<link rel="icon" type="image/png" href="../lib/css/favicon.png">
+  <!-- Bootstrap Core CSS -->
+  <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	
+  <!-- Custom CSS -->
+  <link href="../lib/css/scrolling-nav.css" rel="stylesheet">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+  <!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+ <div class="container">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+   <li class="hidden"> <a class="page-scroll" href="#page-top"></a> </li>
+	 
+	 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+   </button>
+	 
+   <a class="navbar-brand " href="../index.htm"> 
+  <text class = "hidden-xs">Базы данных</text> 
+  <text class = "visible-xs">БД</text>
+	 </a>
+  </div>
+
+  <!-- Collect the nav links, forms, and glyphicon glyphicon-list-alt content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+   
+	 <!-- <ul class="nav navbar-nav">
+		<li><a href="#"></a></li> 
+   </ul> -->
+	
+   <ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+		<button type="button" class="navbar-toggle dropdown-toggle hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>	   
+		<a class = "dropdown-toggle visible-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Материалы</a>
+     <ul class="dropdown-menu">
+    <li><a href="../index.htm">Аннотация курса</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="lec_index.htm">Теория</a></li>
+<li><a href="labs.htm">Лабораторные работы</a></li> 
+      <li><a href="c_work.htm">Контрольная работа</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="lit.htm">Литература</a></li>
+      <!--li><a href="q.htm">Вопросы для самопроверки</a></li-->			
+     </ul>
+ </li>
+ </ul>
+  </div><!-- /.navbar-collapse -->
+ </div><!-- /.container-fluid -->
+</nav>
+
+
+  <div id="intro" class="section content-section ">
+    <div class="container">
+       <div class="row">
+        <div class="col-lg-12">	
+
+
+<!-- содержание -->	
+<div class="page-header">				
+<h3>Лабораторная работа 3. Обработка форм </h3>
+<a href="#1">1 Теоретический материал</a><br>
+<a href="#2">2 Конторольные вопросы</a><br>
+<a href="#3">3 Задание</a><br>
+
+</div>
+<!--начало-->
+
+<a name=1 class="anchor"></a>
+<h3><b>1 Теоретический материал</b></h3>
+<p>В web-пространстве для
+передачи данных от посетителя web-страницы (мы будем также называть такого
+гипотетического человека пользователем) на сервер используются HTML-формы. В
+языке РНР предусмотрены многочисленные средства для работы с формами.<o:p></o:p></span></p>
+
+<p>Программа для
+обработки ввода пользователя<o:p></o:p></b></p>
+
+<p>До некоторого времени
+мы будем разделять HTML-текст и текст РНР-программ. В листинге 10.1 приведен
+пример простой HTML-формы.<o:p></o:p></span></p>
+
+<p><b>Листинг 10.1.
+Простая HTML-форма<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='page-break-after:avoid'><!--[if gte vml 1]><v:line
+ id="_x0000_s1571" style='position:absolute;z-index:1' from=".9pt,10.35pt"
+ to="483.3pt,10.35pt" o:allowincell="f" strokeweight="2pt"/><![endif]--><![if !vml]><span
+style='mso-ignore:vglayout;position:relative;z-index:1;left:-1px;top:12px;
+width:647px;height:16px'><img width=647 height=4 src="lab4-t.files/image001.gif"
+v:shapes="_x0000_s1571"></span><![endif]><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;html&gt; &lt;head&gt;<br>
+&lt;title&gt; </span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Листинг</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'> 10-1. </span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Простая</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'> HTML-</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>форма</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'> &lt;/title&gt; <br>
+&lt;/head&gt; &lt;body&gt; <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;!--<br>
+Форма для задания цвета через переменную $bg. <br>
+Ее использование — в скрипте ls10-2.php<br>
+--&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;p&gt;&lt;b&gt;Выберите
+цвет:&lt;/b&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'>&lt;form
+action=&quot;ls10-2.php&quot; method=&quot;GET&quot;&gt;<br>
+&lt;p&gt;&lt;input type=&quot;radio&quot; name=&quot;<b style='mso-bidi-font-weight:
+normal'>bg</b>&quot; value=&quot;red&quot;&gt;red<br>
+&lt;p&gt;&lt;input type=&quot;radio&quot; name=&quot;<b style='mso-bidi-font-weight:
+normal'>bg</b>&quot; value=&quot;green&quot;&gt;green<br>
+&lt;p&gt;&lt;input type=&quot;radio&quot; name=&quot;<b style='mso-bidi-font-weight:
+normal'>bg</b>&quot; value=&quot;blue&quot;&gt;blue<br>
+&lt;p&gt;&lt;input type=&quot;submit&quot; value=&quot;</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'>Выполнить</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US;mso-no-proof:yes'>&quot;&gt;<br>
+</span><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-ansi-language:EN-US'>&lt;/form&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;/body&gt;
+&lt;/html&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1572" style='position:absolute;
+ z-index:2' from=".9pt,10.35pt" to="483.3pt,10.35pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:2;left:-1px;top:12px;width:647px;height:16px'><img
+width=647 height=4 src="lab4-t.files/image001.gif" v:shapes="_x0000_s1572"></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+<p>Мы создали форму, в
+которой есть набор кнопок-переключателей (</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman";
+mso-ansi-language:EN-US'>radio</span><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'> </span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman";
+mso-ansi-language:EN-US'>button</span>) с общим именем</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> &quot;</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'>bg</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&quot;
+</span>и кнопка передачи данных</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> &quot;submit&quot;</span>. Атрибут</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> action </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'>тега</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> form </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'>указывает
+на файл</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> ls10-2.php</span>,
+следовательно этот файл будет обрабатывать данные формы. Поскольку мы указали
+здесь только имя файла, а путь к нему опустили, то файл должен находиться в том
+же каталоге на сервере, что и файл с программой 10.1. <o:p></o:p></span></p>
+
+<p>Обратите внимание, как
+передается значение переменной в методе </span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-no-proof:yes'>GET</span> (т.е. что
+пишется в поле «Адрес» браузера при нажатии кнопки «Выполнить»)</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman";
+mso-ansi-language:EN-US'>&nbsp;</span>— это
+строка вида<o:p></o:p></span></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>ls10-2.php<span
+style='mso-no-proof:yes'>?bg=red<o:p></o:p></span></span></p>
+
+<p>т.е.
+после имени выполняемого скрипта идет знак вопроса, затем имя передаваемой
+переменной, </span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman"'>знак «равно» и значение этой <span
+style='mso-no-proof:yes'>переменной</span>.<o:p></o:p></span></p>
+
+<p>В листинге 10.2
+приведена программа, обрабатывающая данные формы из листинга 10.1.<o:p></o:p></span></p>
+
+<p><b>Листинг 10.2.
+Чтение данных формы из листинга 10.1<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='page-break-after:avoid'><!--[if gte vml 1]><v:line
+ id="_x0000_s1573" style='position:absolute;z-index:3' from=".9pt,10.35pt"
+ to="483.3pt,10.35pt" o:allowincell="f" strokeweight="2pt"/><![endif]--><![if !vml]><span
+style='mso-ignore:vglayout;position:relative;z-index:3;left:-1px;top:12px;
+width:647px;height:16px'><img width=647 height=4 src="lab4-t.files/image001.gif"
+v:shapes="_x0000_s1573"></span><![endif]><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;html&gt;
+&lt;head&gt;<br>
+&lt;title&gt; Листинг 10-2. Чтение данных формы <br>
+<span style='mso-spacerun:yes'>        </span>из листинга 10-1 &lt;/title&gt;
+&lt;/head&gt; &lt;body&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;?php
+<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>/*
+Из файла ls10-1.php предается переменная $bg с названием цвета. Здесь она
+используется для задания цвета посещенной гиперссылки и цвета фона маленькой
+таблицы (прямоугольника) <br>
+*/<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'>print &quot;&lt;body
+bgcolor=silver text=</span><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>black<span style='mso-no-proof:yes'> link=white
+<br>
+<span style='mso-spacerun:yes'>        </span>alink=maroon vlink=<b
+style='mso-bidi-font-weight:normal'>$bg</b>&gt;\n&quot;;<o:p></o:p></span></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'>print &quot;&lt;p&gt;&lt;table
+border=1 width=100 align=center&gt;\n&quot;;<br>
+print &quot;&lt;tr&gt; &lt;td bgcolor=<b style='mso-bidi-font-weight:normal'>$bg</b>&gt;&amp;nbsp;&lt;br&gt;&amp;nbsp;&lt;/td&gt;<br>
+&lt;/tr&gt;&lt;/table&gt;\n&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>print &quot;&lt;p align=center&gt;&lt;a
+href='ls10-1.php'&gt;</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>назад</span><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;/a&gt;&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>?&gt;<br>
+&lt;/body&gt; &lt;/html&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1574" style='position:absolute;
+ z-index:4' from=".9pt,10.35pt" to="483.3pt,10.35pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:4;left:-1px;top:12px;width:647px;height:16px'><img
+width=647 height=4 src="lab4-t.files/image001.gif" v:shapes="_x0000_s1574"></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+<p>Эта программа
+запускается не щелчком на ссылке и не указанием имени файла в строке адреса в
+окне браузера. Текст программы из листинга 10.2 нужно поместить в файл с именем</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> ls10-2.php</span>,
+и этот файл будет запускаться сервером тогда, когда пользователь нажмет кнопку
+«Выполнить» в форме из листинга 10.1. В программе мы обращаемся к переменной</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> $<span style='mso-no-proof:
+yes'>bg&nbsp;</span></span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"Times New Roman";mso-no-proof:yes'>—</span>
+в ней записано название цвета, которое выбрал пользователь. В результате на
+экране будет изображен прямоугольник и гиперссылка «назад» соответствующего
+цвета. Обработка форм в языке РНР действительно настолько проста. Все данные,
+переданные пользователем, становятся доступными программе в виде глобальных
+переменных, имена которых совпадают с именами соответствующих элементов
+HTML-формы. Однако, будьте внимательны, если в файле настроек языка </span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman";
+mso-ansi-language:EN-US'>PHP</span><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'> </span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman";
+mso-ansi-language:EN-US'>php</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"Times New Roman"'>.</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman";
+mso-ansi-language:EN-US'>ini</span> директива </span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>register</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>_</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>g</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>lobals=Off</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'>,
+т.е. отключена, то так просто передавать переменные из скрипта в скрипт <u>не
+удастся!</u> В этом случае придется использовать специальные <b
+style='mso-bidi-font-weight:normal'><i style='mso-bidi-font-style:normal'>переменные
+окружения</i></b>.<o:p></o:p></span></p>
+
+<p><b>Обработка
+элементов с многозначным выбором</b><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'><o:p></o:p></span></p>
+
+<p>В предыдущем примере
+мы рассмотрели обработку данных, при которой каждому элементу соответствует
+только одно значение. Но остается неясным, как обрабатывать информацию от
+элементов, которые позволяют выбирать несколько значений из списка. Создав
+несколько флажков с одним именем, вы позволяете пользователю ввести несколько
+значений под этим одним именем. Если в теге</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> <span style='mso-no-proof:yes'>input</span> </span>мы
+дадим этому элементу простое имя, то по такому имени программа сможет
+обратиться только к одному значению, связанному с этим элементом. Для того
+чтобы программа могла иметь доступ ко всем значениям, выбранным пользователем,
+нужно к имени данного элемента приписать пару пустых квадратных скобок (т.е.
+создать массив). Это и сделано в листинге 10.3.<o:p></o:p></span></p>
+
+<p><b>Листинг 10.3.
+HTML-форма <span style='mso-no-proof:yes'>с выбором из списка</span><o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='page-break-after:avoid'><!--[if gte vml 1]><v:line
+ id="_x0000_s1575" style='position:absolute;z-index:5' from=".9pt,10.35pt"
+ to="483.3pt,10.35pt" o:allowincell="f" strokeweight="2pt"/><![endif]--><![if !vml]><span
+style='mso-ignore:vglayout;position:relative;z-index:5;left:-1px;top:12px;
+width:647px;height:16px'><img width=647 height=4 src="lab4-t.files/image001.gif"
+v:shapes="_x0000_s1575"></span><![endif]><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;html&gt;
+&lt;head&gt;<br>
+&lt;title&gt; Листинг 10-3. HTML-форма с выбором из списка <br>
+&lt;/title&gt; &lt;/head&gt; &lt;body&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;!--<br>
+Здесь в скрипт ls10-4.php передаются: <br>
+1) переменная $user <br>
+2) массив hobby[] со значениями, которые были выбраны <br>
+<span style='mso-spacerun:yes'>   </span>в форме<br>
+--&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;form action=&quot;ls10-4.php&quot;
+method=&quot;POST&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;p&gt;</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'>Введите</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>ваше</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>имя</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'>&lt;p&gt;&lt;input
+type=&quot;text&quot; name=&quot;<b style='mso-bidi-font-weight:normal'>user</b>&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-no-proof:yes'>&lt;p&gt;Что вы любите делать в свободное время &lt;br&gt;<br>
+<span style='mso-spacerun:yes'>   </span>(можно выбрать несколько вариантов)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-no-proof:yes'>&lt;p&gt;&lt;input type=&quot;checkbox&quot; name=&quot;<b
+style='mso-bidi-font-weight:normal'>hobby[]</b>&quot; <br>
+<span style='mso-spacerun:yes'>    </span>value=&quot;слушать
+музыку&quot;&gt;слушать музыку<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-no-proof:yes'>&lt;p&gt;&lt;input type=&quot;checkbox&quot; name=&quot;<b
+style='mso-bidi-font-weight:normal'>hobby[]</b>&quot; <br>
+<span style='mso-spacerun:yes'>    </span>value=&quot;читать
+книгу&quot;&gt;читать книгу<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-no-proof:yes'>&lt;p&gt;&lt;input type=&quot;checkbox&quot; name=&quot;<b
+style='mso-bidi-font-weight:normal'>hobby[]</b>&quot; <br>
+<span style='mso-spacerun:yes'>    </span>value=&quot;смотреть
+телевизор&quot;&gt;смотреть телевизор<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-no-proof:yes'>&lt;p&gt;&lt;input type=&quot;checkbox&quot; name=&quot;<b
+style='mso-bidi-font-weight:normal'>hobby[]</b>&quot; <br>
+<span style='mso-spacerun:yes'>    </span>value=&quot;гулять на
+улице&quot;&gt;гулять на улице<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'>&lt;p&gt;&lt;input
+type=&quot;submit&quot; value=&quot;</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-no-proof:yes'>Выбор</span><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'>сделан</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US;mso-no-proof:yes'>&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;/form&gt;<br>
+&lt;/body&gt; &lt;/html&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1576" style='position:absolute;
+ z-index:6' from=".9pt,10.35pt" to="483.3pt,10.35pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:6;left:-1px;top:12px;width:647px;height:16px'><img
+width=647 height=4 src="lab4-t.files/image001.gif" v:shapes="_x0000_s1576"></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+<p>Теперь в программе</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'> ls10-4.php</span>,
+предназначенной для обработки этой формы, значения, выбранные пользователем в
+элементе</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> &quot;<span
+style='mso-no-proof:yes'>hobby</span>[]&quot;</span>, будут
+доступны как элементы массива</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> $<span style='mso-no-proof:yes'>hobby</span></span>.
+Кроме того, в программу <br>
+</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:
+yes'>ls10-4.php</span> передается значение <span style='mso-no-proof:
+yes'>переменной</span></span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-no-proof:yes'> $user</span> — в которой записано то, что
+пользователь указал в текстовом поле </span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'>&quot;<span style='mso-no-proof:yes'>user</span>&quot;</span>.
+Пример вы видите в листинге 10.4.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='text-align:justify'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:
+Arial;mso-bidi-font-family:"Times New Roman"'>Листинг 10.4. Обработка данных
+формы из листинга 10.3<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1577" style='position:absolute;
+ z-index:7' from=".9pt,10.35pt" to="483.3pt,10.35pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:7;left:-1px;top:12px;width:647px;height:16px'><img
+width=647 height=4 src="lab4-t.files/image001.gif" v:shapes="_x0000_s1577"></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;html&gt;
+&lt;head&gt;<br>
+&lt;title&gt; Листинг 10-4. Обработка данных формы <br>
+<span style='mso-spacerun:yes'>        </span>из листинга 10-3 &lt;/title&gt;
+&lt;/head&gt; &lt;body&gt; <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;?php<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-no-proof:yes'><span style='mso-spacerun:yes'> </span>print &quot;&lt;p&gt;<b
+style='mso-bidi-font-weight:normal'>$user</b>, оказывается, вы
+предпочитаете&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'>print
+&quot;&lt;ul&gt;\n&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'>foreach (<b style='mso-bidi-font-weight:
+normal'>$hobby</b> as $value) <br>
+<span style='mso-spacerun:yes'>        </span></span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>{<span
+style='mso-no-proof:yes'>print &quot;&lt;li&gt;$value\n&quot;;<br>
+}<br>
+</span>print &quot;&lt;/ul&gt;\n&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>?&gt;<br>
+<span style='mso-spacerun:yes'> </span>&lt;/body&gt; &lt;/html&gt; <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='text-align:justify'><!--[if gte vml 1]><v:line
+ id="_x0000_s1578" style='position:absolute;left:0;text-align:left;z-index:8'
+ from=".9pt,11.95pt" to="483.3pt,11.95pt" o:allowincell="f" strokeweight="2pt"/><![endif]--><![if !vml]><span
+style='mso-ignore:vglayout;position:relative;z-index:8;left:-1px;top:14px;
+width:647px;height:18px'><img width=647 height=4 src="lab4-t.files/image002.gif"
+v:shapes="_x0000_s1578"></span><![endif]><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+<p>Несколько флажков с
+одним именем</span><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&nbsp;</span>— не единственный
+способ, который позволяет ввести несколько значений. В листинге 10.3 можно
+заменить последовательность флажков с одним именем на тег</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> SELECT </span>с
+атрибутом</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>
+multiple</span>, и работать это будет точно так же.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-no-proof:yes'>&lt;select name= &quot;hobby[]&quot; multiple&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-no-proof:yes'>&lt;option value=&quot;лежать на диване&quot;&gt;лежать на
+диване <br>
+&lt;option value=&quot;читать книгу&quot;&gt;читать книгу <br>
+&lt;option value=&quot;смотреть телевизор&quot;&gt;смотреть телевизор <br>
+&lt;option value=&quot;гулять на улице&quot;&gt;гулять на улице <br>
+&lt;/select&gt;<o:p></o:p></span></p>
+
+<p><b>Доступ ко всем
+полям формы через ассоциативный массив</b></p>
+
+<p>Рассмотренная выше
+техника работает прекрасно, но только в том случае, если вы заранее знаете
+имена всех полей формы. Однако вам может понадобиться написать программу,
+которая умеет настраиваться на изменения, сделанные в форме, или даже
+обрабатывать несколько разных форм, при этом не заботясь о фактических именах
+полей. Эту проблему можно решить с помощью глобальных переменных РНР. В
+зависимости от того, используете ли вы метод передачи</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> GET </span>(короткая
+строка с данными)</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>
+</span>или</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> POST </span>(большой объем данных), в ваше распоряжение
+предоставляется один из массивов</span><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Times New Roman";mso-ansi-language:EN-US'>&nbsp;</span>—
+</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>$HTTP_GET_VARS </span>или</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> $НТТР_POST_VARS</span>.
+Это ассоциативные массивы, содержащие пары имя/значение для каждого элемента переданной
+формы. В листинге 10.5 показано, как с помощью этого способа можно вывести
+список всех полей и переданных значений при использовании метода передачи</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> POST.<o:p></o:p></span></p>
+
+<p><b>Листинг 10.5. Чтение данных
+произвольной формы <br>
+<span style='mso-spacerun:yes'>                         </span>с помощью
+ассоциативных массивов<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='page-break-after:avoid'><!--[if gte vml 1]><v:line
+ id="_x0000_s1579" style='position:absolute;z-index:9' from=".9pt,10.35pt"
+ to="483.3pt,10.35pt" o:allowincell="f" strokeweight="2pt"/><![endif]--><![if !vml]><span
+style='mso-ignore:vglayout;position:relative;z-index:9;left:-1px;top:12px;
+width:647px;height:16px'><img width=647 height=4 src="lab4-t.files/image001.gif"
+v:shapes="_x0000_s1579"></span><![endif]><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;?php
+<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>/*
+Заменить цикл foreach в листинге ls10-4.php<br>
+<span style='mso-spacerun:yes'>   </span>Листинг 10-5. Чтение данных
+произвольной формы <br>
+<span style='mso-spacerun:yes'>           </span>с помощью ассоциативных
+массивов <br>
+*/<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>foreach ($HTTP_POST_VARS as $key=&gt;$value) {<br>
+<span style='mso-spacerun:yes'>         </span>print &quot;$key =
+$value&lt;br&gt;\n&quot;;<br>
+}<br>
+?&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1653" style='position:absolute;
+ z-index:18' from=".9pt,11.6pt" to="483.3pt,11.6pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:18;left:-1px;top:14px;width:647px;height:17px'><img
+width=647 height=3 src="lab4-t.files/image003.gif" v:shapes="_x0000_s1653"></span><![endif]><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+<p>Приведенная выше
+программа выводит имена и значения всех параметров, переданных ей. Конечно, не
+всегда разумно обрабатывать данные таким образом. Если бы мы передали этой
+программе для обработки форму из листинга 10.3, то получили бы следующее:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-no-proof:yes'>user = </span><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>guest</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'> <br>
+</span><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-ansi-language:EN-US'>hobby</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-no-proof:yes'> = <b style='mso-bidi-font-weight:normal'>Array</b><o:p></o:p></span></p>
+
+<p>Дело в том, что данные</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> </span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>hobby</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> </span>существуют
+как элементы массива</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> $НТТР_</span><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>POS</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'>T_VARS</span><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>&nbsp;</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>[</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>hobby</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>]</span>,
+а мы попытались обратиться к ним как к простой переменной. В листинге 10.6 эта
+ошибка исправлена и, перед тем как вывести те или иные данные, их тип проверяется.<o:p></o:p></span></p>
+
+<p><b>Листинг 10.6. Чтение данных
+произвольной формы <br>
+с проверкой типов<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='page-break-after:avoid'><!--[if gte vml 1]><v:line
+ id="_x0000_s1581" style='position:absolute;z-index:10' from=".9pt,10.35pt"
+ to="483.3pt,10.35pt" o:allowincell="f" strokeweight="2pt"/><![endif]--><![if !vml]><span
+style='mso-ignore:vglayout;position:relative;z-index:10;left:-1px;top:12px;
+width:647px;height:16px'><img width=647 height=4 src="lab4-t.files/image001.gif"
+v:shapes="_x0000_s1581"></span><![endif]><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;?php<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>/*
+Заменить цикл foreach в листинге ls10-4.php<br>
+<span style='mso-spacerun:yes'>   </span>Листинг 10-6. Чтение данных
+произвольной формы <br>
+<span style='mso-spacerun:yes'>           </span>с проверкой типов <br>
+*/<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>foreach ($HTTP_POST_VARS as $key=&gt;$value)<br>
+{<span style='mso-spacerun:yes'>  </span>#1<br>
+if (gettype($value) == &quot;array&quot;)<br>
+<span style='mso-spacerun:yes'>  </span>{<span style='mso-spacerun:yes'> 
+</span>#2<br>
+print &quot;$key = &lt;br&gt;\n&quot;; <br>
+<span style='mso-spacerun:yes'>     </span>foreach ($value as $v ) {print
+&quot;$v&lt;br&gt;&quot;;}<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>  </span>} <span
+style='mso-spacerun:yes'> </span>#2<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>else <span style='mso-spacerun:yes'>  </span>{<br>
+print &quot;$key = $value&lt;br&gt;\n&quot;;<br>
+<span style='mso-spacerun:yes'>        </span>}<br>
+}<span style='mso-spacerun:yes'>  </span>#1<br>
+?&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1582" style='position:absolute;
+ z-index:11' from=".9pt,10.35pt" to="483.3pt,10.35pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:11;left:-1px;top:12px;width:647px;height:16px'><img
+width=647 height=4 src="lab4-t.files/image001.gif" v:shapes="_x0000_s1582"></span><![endif]><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='text-align:justify'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'>Как и в предыдущих
+примерах, в цикле</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>
+foreach </span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman"'>мы просматриваем массив</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> $HTTP_</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'>POS</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>T_VARS
+</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:
+"Times New Roman"'>и с помощью функции</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> gettype() </span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'>проверяем, является ли
+очередная переменная массивом. Если да, то создаем вложенный цикл, в котором
+выводим значения этого массива.<o:p></o:p></span></p>
+
+<p class=MsoNormal align=left style='margin-top:12.0pt;text-align:left;
+page-break-after:avoid'><b style='mso-bidi-font-weight:normal'>Определение
+метода передачи</b><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='text-align:justify'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'>Если необходимо, чтобы
+программа работала правильно и при этом могла обрабатывать данные, полученные
+от любой формы, то программа должна определять, по какому методу ей переданы
+данные, и в зависимости от этого читать ассоциативный массив</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> $HTTP_GET_VARS </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'>или
+</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>$HTTP_POST_VARS</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'>.
+В большинстве систем вы можете определить, какой метод использовался для
+передачи, просмотрев значение переменной среды</span><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'> $REQUEST_METHOD</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'>,
+в которой будет записано</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> POST </span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman"'>или</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> GET. </span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'>Кроме того, есть еще
+один способ узнать используемый метод, если помнить о том, что массив</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> $HTTP_POST_VARS </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'>существует
+только при использовании метода</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> POST.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='text-align:justify'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'>Пример того, как это
+сделать, приведен в листинге 10.7.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='page-break-after:avoid'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:
+Arial;mso-bidi-font-family:"Times New Roman"'>Листинг 10.7. Независимое от
+метода чтение данных<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='page-break-after:avoid'><!--[if gte vml 1]><v:line
+ id="_x0000_s1583" style='position:absolute;z-index:12' from=".9pt,10.35pt"
+ to="483.3pt,10.35pt" o:allowincell="f" strokeweight="2pt"/><![endif]--><![if !vml]><span
+style='mso-ignore:vglayout;position:relative;z-index:12;left:-1px;top:12px;
+width:647px;height:16px'><img width=647 height=4 src="lab4-t.files/image001.gif"
+v:shapes="_x0000_s1583"></span><![endif]><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;?php<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>/*
+Заменить цикл foreach в листинге ls10-4.php<br>
+<span style='mso-spacerun:yes'>   </span>Листинг 10-7. Независимое от метода
+чтение данных <br>
+*/<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>$PARAMS = (isset($HTTP_POST_VARS))<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>? $HTTP_POST_VARS : $HTTP_GET_VARS;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>foreach ($PARAMS as $key=&gt;$value)<br>
+{<span style='mso-spacerun:yes'>  </span>#1<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>  </span>if
+(gettype($value) == &quot;array&quot;) <br>
+<span style='mso-spacerun:yes'>    </span>{<span style='mso-spacerun:yes'> 
+</span>#2<br>
+<span style='mso-spacerun:yes'>     </span>print &quot;$key =
+&lt;br&gt;\n&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>     </span>foreach
+($value as $v) <br>
+<span style='mso-spacerun:yes'>     </span>print &quot;$v&lt;br&gt;&quot;;<br>
+<span style='mso-spacerun:yes'>    </span>} <span
+style='mso-spacerun:yes'> </span>#2<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>    </span>else<br>
+<span style='mso-spacerun:yes'>        </span>{print &quot;$key =
+$value&lt;br&gt;\n&quot;;<br>
+<span style='mso-spacerun:yes'>        </span>}<br>
+}<span style='mso-spacerun:yes'>  </span>#1<br>
+?&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1584" style='position:absolute;
+ z-index:13' from=".9pt,10.35pt" to="483.3pt,10.35pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:13;left:-1px;top:12px;width:647px;height:16px'><img
+width=647 height=4 src="lab4-t.files/image001.gif" v:shapes="_x0000_s1584"></span><![endif]><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+<p>С помощью тернарного
+логического оператора мы устанавливаем переменную</span><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'> $PARAMS.</span> Потом, используя
+функцию</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> isset()</span>,
+проверяем, определено ли значение массива</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> $HTTP_POST_VARS</span>. Данная функция возвращает
+значение</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> true</span>,
+если переданная ей переменная определена. После этого можно пользоваться
+массивом</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>
+$PARAMS</span>, независимо от того, в результате какого метода
+были определены его значения.<o:p></o:p></span></p>
+
+<p><b>Расположение
+HTML-текста и РНР-программы <br>
+на одной странице</b></p>
+
+<p>При некоторых
+обстоятельствах вам может понадобиться расположить РНР-программу,
+обрабатывающую данные, на той же странице, что и форму, передающую такие
+данные. Это может оказаться удобным, например, в том случае, когда вам нужно
+вывести форму несколько раз. В листинге 10.8 приведен пример такой формы: на
+экране браузера изображается небольшой прямоугольник&nbsp;— таблица, содержащая
+всего одну ячейку и предлагается задать цвет для этого прямоугольника. После
+выбора нужного цвета и нажатия кнопки </span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'>&quot;закрасить&quot;</span>, можно видеть,
+что прямоугольник тут же меняет свой цвет. <o:p></o:p></span></p>
+
+<p><b>Листинг 10.8.
+HTML-форма, вызывающая саму себя<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='page-break-after:avoid'><!--[if gte vml 1]><v:line
+ id="_x0000_s1585" style='position:absolute;z-index:14' from=".9pt,10.35pt"
+ to="483.3pt,10.35pt" o:allowincell="f" strokeweight="2pt"/><![endif]--><![if !vml]><span
+style='mso-ignore:vglayout;position:relative;z-index:14;left:-1px;top:12px;
+width:647px;height:16px'><img width=647 height=4 src="lab4-t.files/image001.gif"
+v:shapes="_x0000_s1585"></span><![endif]><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;html&gt;
+&lt;head&gt;<br>
+&lt;title&gt; Листинг 10-8. HTML-форма, вызывающая саму себя <br>
+&lt;/title&gt; &lt;/head&gt; &lt;body&gt; <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;?php<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>if (!isset ($bg)) {$bg = &quot;silver&quot;;}<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>print &quot;&lt;p&gt;</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Выберите</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>цвет</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>фона</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>прямоугольника</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'>&quot;;<br>
+print &quot;&lt;p&gt;&lt;table border=1 width=100&gt;&quot;;<br>
+print &quot;&lt;tr&gt; &lt;td bgcolor=$bg&gt;&amp;nbsp;&lt;br&gt;&amp;nbsp;<br>
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&quot;;<br>
+?&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'>&lt;form action=&quot;<b
+style='mso-bidi-font-weight:normal'>&lt;? print $PHP_SELF ?&gt;</b>&quot;
+method=&quot;get&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;p&gt;&lt;input type=&quot;radio&quot;
+name=&quot;bg&quot; value=&quot;red&quot;&gt;</span><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>красный</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'><br>
+&lt;p&gt;&lt;input type=&quot;radio&quot; name=&quot;bg&quot;
+value=&quot;green&quot;&gt;</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>зеленый</span><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><br>
+&lt;p&gt;&lt;input type=&quot;radio&quot; name=&quot;bg&quot;
+value=&quot;blue&quot;&gt;</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>синий</span><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><br>
+&lt;p&gt;&lt;input type=&quot;radio&quot; name=&quot;bg&quot;
+value=&quot;silver&quot;&gt;</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>исходный</span><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;p&gt;&lt;input type=&quot;submit&quot;
+value=&quot;</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>закрасить</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'>&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;/form&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;/body&gt;
+&lt;/html&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1586" style='position:absolute;
+ z-index:15' from=".9pt,10.35pt" to="483.3pt,10.35pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:15;left:-1px;top:12px;width:647px;height:16px'><img
+width=647 height=4 src="lab4-t.files/image001.gif" v:shapes="_x0000_s1586"></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+<p>Как бы мы ни назвали
+файл, содержащий эту форму, все равно форма будет обращаться к этому файлу, так
+как в ней в атрибуте</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> ACTION </span>есть переменная</span><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'> $PHP_SELF</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'>. <span
+style='mso-no-proof:yes'>Функция</span></span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-no-proof:yes'> isset() </span>возвращает истину, если указанная переменная уже была
+определена (ей было присвоено значение), тогда </span><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>&quot;<span style='mso-no-proof:yes'>!isset()&quot;
+</span></span>возвратит истину, если
+указанная переменная не определена т.е.когда мы первый раз вызываем файл с
+формой.<o:p></o:p></span></p>
+
+<p><b>Динамическое
+конструирование форм<o:p></o:p></b></p>
+
+<p>До настоящего момента
+мы программировали все формы вручную, поскольку точно знали количество
+элементов формы. А что делать, если требуется вывести, например, раскрывающийся
+список, элементы которого хранятся в массиве, размер которого нам заранее
+неизвестен.<o:p></o:p></span></p>
+
+<p>Предположим, вы хотите
+дать возможность посетителю выбрать один из поисковых серверов и автоматически
+перенаправить его туда. В листинге 10.9 для этого используется функция</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> header()</span>.
+Когда программа на сервере общается с клиентом, она должна сначала послать
+некоторые заголовки, содержащие информацию о том документе, который за ними
+следует. Обычно РНР делает это автоматически, но вы можете послать свой
+собственный заголовок с помощью функции</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> header()</span>. Но прежде чем
+послать заголовок, вы должны убедиться в том, что никаких данных от вашей
+программы на браузер пока не поступало. К тому моменту, когда данные посылаются
+на браузер, заголовки уже отправлены и вам уже поздно посылать свой собственный
+заголовок. Даже простой перевод строки или единственный пробел приводят к тому,
+что программа посылает заголовок типа содержания. Если вы хотите послать свой
+собственный заголовок с помощью функции</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> header()</span>, то должны проверить
+программу и убедиться, что ничего пока не отправлено. <o:p></o:p></span></p>
+
+<p>Послав браузеру
+заголовок</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>
+&quot;Location&quot;</span>, вы перенаправите пользователя на новую
+страницу:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>header (&quot;Location:
+http://www.my_new_site.ru&quot;);<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin:0cm;margin-bottom:.0001pt;text-align:justify'><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p><b>Листинг 10.9. Посылка заголовка с помощью функции </span></b><b
+style='mso-bidi-font-weight:normal'><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>header()<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1591" style='position:absolute;
+ z-index:16' from=".9pt,10.35pt" to="483.3pt,10.35pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:16;left:-1px;top:12px;width:647px;height:16px'><img
+width=647 height=4 src="lab4-t.files/image001.gif" v:shapes="_x0000_s1591"></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+<br style='mso-ignore:vglayout' clear=ALL>
+
+<p class=MsoPlainText><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'>&lt;?php<br>
+if ($<u>day</u> != &quot;&quot;) {<br>
+<span style='mso-spacerun:yes'>    </span>header(&quot;Location: $day&quot;);<br>
+<span style='mso-spacerun:yes'>    </span>exit;<br>
+}<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>else { // </span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'>начало</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>блока</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'> else<br>
+?&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;html&gt; &lt;head&gt;<br>
+&lt;title&gt; </span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Листинг</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'> 10-9. </span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Посылка</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>заголовка</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>с</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>помощью</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'><br>
+<span style='mso-spacerun:yes'>        </span></span><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>функции</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>
+header() &lt;/title&gt; &lt;/head&gt; &lt;body&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;form action = &quot;&lt;? print $PHP_SELF
+?&gt;&quot; method=&quot;post&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US;mso-no-proof:yes'>&lt;select name=&quot;<u>day</u>&quot;&gt;<br>
+&lt;option value = &quot;&quot;&gt;</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-no-proof:yes'>Дни</span><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'>недели</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US;mso-no-proof:yes'>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;option value='d1.htm'&gt;</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Понедельник</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;option value='d2.htm'&gt;</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Вторник</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;option value='d3.htm'&gt;</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Среда</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;/select&gt;<br>
+&lt;input type=&quot;submit&quot; value=&quot;</span><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>Перейти</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>&quot;&gt;<br>
+&lt;/form&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;?php<br>
+<span style='mso-spacerun:yes'>     </span>} // </span><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>конец</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>блока</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'> else<br>
+?&gt;<br>
+&lt;/body&gt; &lt;/html&gt; <o:p></o:p></span></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1592" style='position:absolute;
+ z-index:17' from=".9pt,10.35pt" to="483.3pt,10.35pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:17;left:-1px;top:12px;width:647px;height:16px'><img
+width=647 height=4 src="lab4-t.files/image001.gif" v:shapes="_x0000_s1592"></span><![endif]><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+<p>Сначала мы проверяем,
+было ли присвоено значение переменной </span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-no-proof:yes'>$</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US;
+mso-no-proof:yes'>day</span>, являющейся именем элемента</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'> select</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> </span>в
+форме. Если проверка дает положительный результат, вызывается функция</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> header() </span>с
+аргументом, в котором значение переменной</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> <span style='mso-no-proof:yes'>$</span></span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US;mso-no-proof:yes'>day</span><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> </span>присоединяется к строке</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> &quot;Location<span
+style='mso-no-proof:yes'>:&nbsp;</span>&quot;</span>. При передаче
+этой команды функция</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> header() </span>перенаправляет браузер на соответствующий файл (</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US;mso-no-proof:yes'>d</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-no-proof:yes'>1.</span><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'>htm</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'>,
+</span><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-ansi-language:EN-US;mso-no-proof:yes'>d</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-no-proof:yes'>2.</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US;
+mso-no-proof:yes'>htm</span><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'> </span>или
+</span><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-ansi-language:EN-US;mso-no-proof:yes'>d</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-no-proof:yes'>3.</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US;
+mso-no-proof:yes'>htm</span>). Если значение переменной </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'>$</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US;mso-no-proof:yes'>day</span>, не задано, форма выводится в браузере. <o:p></o:p></span></p>
+<br>
+<a name=2 class="anchor"></a>
+<h3><b>2 Конторольные вопросы</b></h3>
+<p>1.Каким образом данные HTML-формы, переданные пользователем, становятся доступными PHP-программе? </p>
+<p>2.Как обрабатывать информацию от элементов, которые позволяют выбирать несколько значений из списка? </p>
+<p>3.Опишите способы, позволяющие узнать используемый метод передачи данных. </p>
+<p>4.Как создать HTML-форму, вызывающую саму себя? </p>
+<p>5.Для чего используется функция header() ? </p>
+<br>
+<a name=3 class="anchor"></a>
+<h3><b>3 Задание</b></h3>
+<H3>№ 1</H3>
+<p>Создайте файл <b>z4-1a.htm</b> с HTML-формой, позволяющей выбрать 
+<br>а) горизонтальное (align, варианты значений: left, center, right),
+<br>б) вертикальное (valign, варианты значений: top, middle, bottom) 
+<br>расположение текста в таблице. 
+<br>Для (а) использовать радиокнопки, для (б) - флажки. 
+<br>Обработка формы выполняется в скрипте <b>z4-1b.php</b> по нажатии кнопки "Выполнить". 
+<hr width="70%">
+<p><img src="ris/r8-1a.gif">
+<hr width="70%">
+
+<p>В скрипте <b>z4-1b.php</b> сформировать таблицу, состоящую из одной ячейки шириной и высотой 100 пикселов, 
+атрибуты ячейки align и valign должны получить значения, переданные из формы. В ячейку таблицы поместить 
+слово "Текст". Под таблицей вставить гиперссылку на файл z4-1a.htm ("Назад").
+<hr width="70%">
+<p><img src="ris/r8-1b.gif">
+<hr width="70%">
+
+<p>(Использовать листинги 10-1 и 10-2).
+
+
+<H3>№ 2</H3>
+<p>На основе предыдущего задания создайте файл <b>z4-2.php</b> с HTML-формой, 
+которая вызывает сама себя. По умолчанию установите 
+такие значения: для align - "left", для valign - "top".
+
+<hr width="70%">
+<p><img src="ris/r8-2.gif">
+<hr width="70%">
+<p>(Использовать листинг 10-8).
+
+
+<H3>№ 3</H3>
+<p>Создайте файл <b>z4-3a.htm</b> с HTML-формой "Гoрoдa и памятники" для тестирования знаний. 
+В этой форме нужно ввести имя тестируемого, а затем для каждого памятника выбрать, в каком городе он 
+находится. Выбор городов - раскрывающийся список. Список вопросов и ответов - в файле 
+<a href="../ris/vopr.txt" target="new">vopr.txt</a>. 
+<hr width="70%" align=left>
+<p><img src="ris/r8-3a.gif">
+<hr width="70%" align=left>
+
+<p>Обработка формы выполняется в скрипте <b>z4-3b.php</b>, в котором необходимо создать массив 
+$otv с номерами правильных ответов (см. файл 
+<a href="../ris/vopr.txt" target="new">vopr.txt</a>) и сделать вывод на экран имени тестируемого 
+и оценки его знаний в зависимости от количества правильных ответов 
+(см. файл <a href="../ris/vopr.txt" target="new">vopr.txt</a>, использовать оператор switch).
+
+<p>(Использовать листинги 10-3 и 10-4).
+
+<H3>№ 4</H3>
+
+<p>Листинг <b>10-3</b> последовательно сохранить как <b>z4-45.php, z4-46.php, z4-47.php</b> 
+для того, чтобы выполнились листинги <b>10-5, 10-6</b> и <b>10-7</b> 
+(<b>ls10-5.php, ls10-6.php</b> и <b>ls10-7.php</b>). 
+
+<H3>№ 5</H3>
+<p>На основе листинга <b>10-9</b> создайте скрипт <b>z4-5.php</b> в котором сперва
+проверяется, было ли присвоено значение переменной $site. Если проверка дает положительный 
+результат, осуществляется перенаправление пользователя на сайт поисковой системы, 
+адрес которого - значение переменной $site. Если же значение переменной $site не задано, выводится 
+HTML-форма с раскрывющимся списком поисковых сайтов:
+<hr width="70%" align=left>
+<p><img src="ris/r8-5.gif">
+<hr width="70%" align=left>
+
+<p>Эти сайты должны быть занесены в массив $list_sites[]. Предполагается, что данный массив может
+дополняться, а значит его размер заранее неизвестен, поэтому
+раскрывающийся список с адресами поисковых систем сформировать с помощью цикла while 
+и функции, возвращающей количество элементов массива.
+
+
+<br><br>
+<!--конец-->
+      
+				
+
+				</div>
+			</div>
+			
+      </div>
+    </div>
+  </div>
+	
+	<!--Меню навигации по Темам -->	
+	<div aria-label="..." class = "nav-menu">
+	 <ul class="pager background-transition-slow">
+		 <li title="Наверх" style = "margin-right:15px;	"><a class = "glyphicon glyphicon-menu-up page-scroll" href="#page-top"></a></li>
+		 <li title="К предыдущей лекции"><a class = "glyphicon glyphicon-menu-left page-scroll" href="lab2.htm"></a></li>
+		 <li title="В содержание"><a class = "glyphicon glyphicon-list-alt" href="labs.htm"></a></li>
+		 <!--li title="К следующей лекции"><a class = "glyphicon glyphicon-menu-right page-scroll" href="lab2.htm"></a></li-->
+	 </ul>
+	</div>
+	<!---->
+	
+	</div>
+  <!-- jQuery -->
+  <script src="../lib/js/jquery.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="../lib/js/bootstrap.min.js"></script>
+
+  <!-- Scrolling Nav JavaScript -->
+  <script src="../lib/js/jquery.easing.min.js"></script>
+  <script src="../lib/js/scrolling-nav.js"></script>
+
+</body>
+
+</html>

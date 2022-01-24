@@ -1,0 +1,2388 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="description" content="">
+ <meta name="author" content="do.sibsutis.ru">
+
+ <title>Контрольная работа. Базы данных</title>
+
+ <link rel="icon" type="image/png" href="../lib/css/favicon.png">
+ <!-- Bootstrap Core CSS -->
+ <link href="../lib/css/bootstrap.css" rel="stylesheet">
+
+ <!-- Custom CSS -->
+ <link href="../lib/css/scrolling-nav.css" rel="stylesheet">
+
+ <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+ <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+ <!--[if lt IE 9]>
+ <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+ <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+ <![endif]-->
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+ <!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+ <div class="container">
+ <!-- Brand and toggle get grouped for better mobile display -->
+ <div class="navbar-header">
+ <li class="hidden"> <a class="page-scroll" href="#page-top"></a> </li>
+
+ <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+ </button>
+
+ <a class="navbar-brand " href="../index.htm">
+ <text class = "hidden-xs">Базы данных</text>
+ <text class = "visible-xs">БД</text>
+ </a>
+ </div>
+
+ <!-- Collect the nav links, forms, and glyphicon glyphicon-list-alt content for toggling -->
+ <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+ <!-- <ul class="nav navbar-nav">
+ <li><a href="#"></a></li>
+ </ul> -->
+
+ <ul class="nav navbar-nav navbar-right">
+ <li class="dropdown">
+ <button type="button" class="navbar-toggle dropdown-toggle hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+ <span class="icon-bar"></span>
+ </button>
+ <a class = "dropdown-toggle visible-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Материалы</a>
+  
+ <ul class="dropdown-menu">
+  
+ <li><a href="../index.htm">Аннотация курса</a></li>
+  
+ <li role="separator" class="divider"></li>
+  
+ <li><a href="lec_index.htm">Теория</a></li>
+  
+ <li><a href="labs.htm">Лабораторные работы</a></li>
+ 
+<li><a href="c_work.htm">Контрольная работа</a></li>
+ 
+ <li role="separator" class="divider"></li>
+     
+  <li><a href="lit.htm">Литература</a></li>
+  
+
+  <!--li><a href="q.htm">Вопросы для самопроверки</a></li-->			
+   </ul>
+ </li>
+ </ul>
+ </div><!-- /.navbar-collapse -->
+ </div><!-- /.container-fluid -->
+</nav>
+
+
+ <div id="intro" class="section content-section ">
+ 
+<div class="container">
+ <div class="row">
+ <div class="col-lg-12">
+
+ 
+ <div class="page-header">
+  <h3>Контрольная работа</h3>
+ </div>
+
+
+<h2>Методические указания и задание на выполнение контрольной работы </h2>
+
+<br>
+
+
+
+
+<h3>Контрольная работа <br>
+ Работа с базами данных. Включение в программу файлов </h3>
+<div class="page-header">
+<a href="#1" class=punkt>1.  Связь с базами данных на примере MySQL</a><br>
+<a href="#2" class=punkt>2.  Включение файлов в документ</a><br>
+<a href="#3" class=punkt>3.  Контрольные вопросы</a><br>
+<a href="#4" class=punkt>4.  Задание</a><br>
+</div>
+
+<a name=1 class="anchor"></a>
+
+<h3>1. Связь с базами данных на примере MySQL</h3>
+
+<p>Одной из самых
+приятных особенностей языка РНР является легкость, с которой программист на нем
+может общаться с базами данных. В этой главе в основном будет говориться о СУБД
+MySQL, но и с остальными базами данных РНР работает аналогично и с такой же
+легкостью. Из-за чего уделяется такое внимание именно MySQL? Потому что эта
+система управления базами данных соответствует духу РНР, она распространяется
+бесплатно и обладает достаточной мощностью для того, чтобы использовать ее для
+решения реальных задач. Кроме того, существуют версии MySQL для самых разных
+платформ.</p>
+
+<p>Для администраторского
+управления MySQL существует удобный интерфейс, запускаемый через просмотрщик
+(браузер) с помощью приложения<span style='mso-spacerun:yes'>  </span></span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-bidi-font-family:"Courier New"'>http://localhost/Tools/phpMyAdmin/
+</span> (не
+забудьте при этом убедиться в том, что сервер запущен!).<o:p></o:p></span></p>
+
+<p>Заметим, что по умолчаню установлен пользователь
+с именем </span><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-family:
+"Courier New";mso-ansi-language:EN-US'>root</span><span style='font-size:12.0pt;
+font-family:"Times New Roman"'>, работающий без пароля. Чтобы задать пароль,
+следует, запустив приложение </span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-bidi-font-family:"Courier New"'>http://localhost/Tools/phpMyAdmin/</span>,
+выбрать раздел «Привилегии» и, войдя в<span style='mso-spacerun:yes'> 
+</span>редактирование привилегий пользователя</span><span style='font-size:
+12.0pt;mso-bidi-font-family:"Courier New"'> </span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-family:"Courier New";mso-ansi-language:
+EN-US'>root</span><span style='font-size:12.0pt;font-family:"Times New Roman"'>,
+установить ему пароль</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:"Times New Roman"'> </span>(например, </span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-family:"Courier New";mso-ansi-language:
+EN-US'>pass</span><span style='font-size:12.0pt;font-family:"Times New Roman"'>).<o:p></o:p></span></p>
+
+
+<p><b>Подключение к серверу базы данных</b></p>
+
+<p>Перед тем как начинать
+работать со своей базой данных, вам нужно подключиться к серверу. Для этого в
+языке РНР есть функция</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> mysql_connect()</span>. Данная функция имеет три аргумента, в
+которых указывается имя компьютера, имя пользователя и пароль. Если вы опустите
+эти необязательные аргументы, то функция будет считать, что требуется компьютер</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> localhost</span>,
+а имя пользователя и его пароль не требуются, т.е. не установлены в таблице</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mysqluser</span>.
+Конечно, такое подключение не имеет большого смысла&nbsp;— его можно
+использовать только для проверки сервера, поэтому в дальнейшем в наших примерах
+мы будем указывать и имя пользователя, и его пароль. Функция</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mysql_connect() </span>возвращает
+идентификатор подключения, если все прошло успешно. Этот идентификатор можно
+сохранить в переменной и в дальнейшем пользоваться им для работы с сервером
+базы данных.<o:p></o:p></span></p>
+
+<p>В следующем примере
+приводится фрагмент, выполняющий подключение к серверу базы данных:</p>
+
+<p class=MsoPlainText><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'>$mysql_user = &quot;root&quot;;<span
+style='mso-spacerun:yes'>   </span><br>
+$mysql_password = &quot;pass&quot;; <br>
+$conn = mysql_connect(&quot;localhost&quot;, <br>
+$mysql_</span><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-ansi-language:EN-US'>user<span style='mso-no-proof:yes'>, $mysql_password);
+<br>
+if (!$conn ) die(&quot;</span></span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-no-proof:yes'>Нет</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'>соединения</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US;
+mso-no-proof:yes'> </span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-no-proof:yes'>с</span><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'>
+MySQL&quot;);<o:p></o:p></span></p>
+
+<p>Если по каким-либо причинам пароль у данного пользователя 
+не установлен, 
+то функция</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> mysql_connect()</span>  используется без третьего аргумента. </p>
+
+
+
+<p>Если вы используете
+РНР в сочетании с сервером Apache, то для подключения к базе данных можете
+воспользоваться функцией</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> mysql_pconnect()</span>. С точки зрения программиста обе эти
+функции работают одинаково, однако незначительная разница все-таки есть. Если
+вы воспользуетесь функцией</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> mysql_pconnect()</span>, то соединение с сервером не исчезает
+после завершения работы программы или вызова функции</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mysql_close()</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'>.<o:p></o:p></span></p>
+
+<p><b>Выбор базы данных</b></p>
+
+<p>После того как
+соединение с сервером MySQL установлено, вам нужно выбрать базу данных, с
+которой собираетесь работать. Для этого существует функция</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mysql_select_db()</span>.
+Этой функции нужно передать имя базы данных и второй необязательный аргумент</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman";
+mso-ansi-language:EN-US'>&nbsp;</span>— идентификатор подключения к серверу.
+Если этот второй аргумент опустить, то по умолчанию будет использован
+идентификатор последнего полученного подключения. Функция возвращает</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> true</span>,
+если указанная база данных существует и доступ к ней возможен. В следующем
+примере мы выбираем базу данных с именем</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> sample </span>(созданную ранее, при
+выполнении лабораторной работы </span><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Times New Roman";mso-ansi-language:EN-US'>N</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'>
+1).<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-bottom:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US;mso-no-proof:yes'>$database = &quot;sample&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:0cm'><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'>mysql_select_db($database)
+<br>
+or die (&quot;</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Нельзя</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>открыть</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US;mso-no-proof:yes'> $database&quot;);<o:p></o:p></span></p>
+
+<p><b>Обработка ошибок</b></p>
+
+<p>До сих пор мы
+проверяли значения, возвращаемые функциями MySQL, и вызывали функцию</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> die() </span>для
+прекращения выполнения программы. Однако можно вывести на экран браузера более
+подробное сообщение об ошибке, которое может пригодиться при отладке программы.
+При любом неудачном завершении операции MySQL устанавливает номер ошибки и
+строку с ее описанием. Номер ошибки можно получить, используя функцию</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mysql_errno()</span>,
+а строку с описанием&nbsp;— с помощью функции</span><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'> mysql_error()</span>, которая</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> </span>возвращает
+строку с описанием ошибки, если такая произойдет.<o:p></o:p></span></p>
+
+<p>Если программа будет
+пытаться открыть несуществующую базу данных (</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>db</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>_<span style='mso-no-proof:
+yes'>2</span></span>), то в таком случае функция</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> die() </span>выведет
+примерно такое сообщение: <o:p></o:p></span></p>
+
+<p>Нельзя</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'>открыть</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US;
+mso-no-proof:yes'> </span><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>db_<span style='mso-no-proof:yes'>2: Access
+denied for user: 'root@localhost' to database 'db_2'<o:p></o:p></span></span></p>
+
+<p><b>Добавление данных в таблицу</b></p>
+
+<p>Получив доступ к базе
+данных, мы можем добавлять информацию в ее таблицы. Рассмотрим это на примере.
+Представьте себе, что нам нужно создать узел, на котором пользователи сети
+могут покупать для себя доменные имена.<o:p></o:p></span></p>
+
+<p>Мы создаем в базе
+данных</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> sample </span>таблицу
+с именем</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>
+domains. </span><Таблица содержит 4 поля: поле первичного ключа с
+именем</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> id</span>,
+значение которого будет автоматически увеличиваться при добавлении новых
+записей, поле</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>
+domain</span>, куда записана строка переменной длины типа</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> VARCHAR</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'>,
+поле</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> </span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'>myname</span>, содержащее фамилию пользователя, и поле</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mail</span>,
+содержащее адрес пользователя. <o:p></o:p></span></p>
+
+<p>Для создания этой
+таблицы была использована такая команда SQL:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'>create table domains <br>
+<span style='mso-spacerun:yes'>       </span>(id INT NOT NULL AUTO_INCREMENT, <br>
+<span style='mso-spacerun:yes'>        </span>PRIMARY KEY(id), <br>
+<span style='mso-spacerun:yes'>        </span>domain VARCHAR(20), <br>
+<span style='mso-spacerun:yes'>        </span>myname VARCHAR(10), <br>
+<span style='mso-spacerun:yes'>        </span>mail VARCHAR(20)<br>
+<span style='mso-spacerun:yes'>       </span>);<o:p></o:p></span></p>
+
+<p>Для добавления данных
+в эту таблицу нам нужно сконструировать и выполнить запрос SQL. Для этого в
+языке РНР есть функция</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> mysql_query()</span>. Этой функции нужно передать строку с
+запросом и необязательный идентификатор подключения. Если данный идентификатор
+опущен, то будет использоваться последнее полученное подключение. Функция
+возвращает положительное число, в случае успешного выполнения запроса, и</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> false</span>,
+если в запросе содержится ошибка или если вы не имеет права на выполнение
+такого запроса. <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'>$query = &quot;create table
+domains </span><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><br>
+<span style='mso-no-proof:yes'><span style='mso-spacerun:yes'>        
+</span>(id INT NOT NULL AUTO_INCREMENT, <br>
+<span style='mso-spacerun:yes'>          </span>PRIMARY KEY(id), <br>
+<span style='mso-spacerun:yes'>          </span>domain VARCHAR(20), <br>
+<span style='mso-spacerun:yes'>          </span>myname VARCHAR(10), <br>
+<span style='mso-spacerun:yes'>          </span>mail VARCHAR(20)<br>
+<span style='mso-spacerun:yes'>         </span>)&quot;;<br>
+$result = </span>mysql_query(<span style='mso-no-proof:yes'>$query</span>) <br>
+<span style='mso-spacerun:yes'>          </span><span style='mso-no-proof:yes'>or
+die (&quot;&lt;p&gt;</span></span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-no-proof:yes'>Ошибка</span><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'>:
+&quot;.mysql_error());</span><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p>Имейте в виду, что
+успешное выполнение запроса не обязательно подразумевает изменение данных в
+таблице. В листинге 1.1 приведена программа, которая подключается к серверу и
+выбирает базу данных, а функция</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> mysql_query() </span>выполняет оператор</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> INSERT</span>,
+вставляющий данные в таблицу</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> domains </span>базы данных</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> sample</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'>.<o:p></o:p></span></p>
+
+<p><b>Листинг 1.1. Подключение к базе данных <br>
+и добавление записи в таблицу </b></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1679" style='position:absolute;
+ z-index:1' from=".9pt,11.7pt" to="483.3pt,11.7pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:1;left:-1px;top:14px;width:647px;height:17px'><img
+width=647 height=3 src="lab5-t.files/image001.gif" v:shapes="_x0000_s1679"></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+<br style='mso-ignore:vglayout' clear=ALL>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;html&gt;
+&lt;head&gt;<br>
+&lt;title&gt; Листинг 1.1. Добавление записи в таблицу <br>
+&lt;/title&gt; &lt;/head&gt; &lt;body&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;?php<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>$user = &quot;root&quot;;<br>
+$pass = &quot;pass&quot;;<br>
+$db = &quot;sample&quot;; $table = &quot;domains&quot;;<br>
+$conn = mysql_connect(&quot;localhost&quot;, $user, $pass);<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>if
+(!$conn ) die(&quot;Нет соединения с MySQL&quot;); <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>mysql_select_db($db, $conn )<br>
+<span style='mso-spacerun:yes'>     </span>or die (&quot;</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Нельзя</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>открыть</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'> $db: &quot;.mysql_error());<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin:0cm;margin-bottom:.0001pt'><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'>// </span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>вставить</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>создание</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>таблицы</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'> <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>$query = &quot;INSERT INTO $table (domain,
+myname, mail)<br>
+<span style='mso-spacerun:yes'>   </span>VALUES('123abc.com', 'abc',
+'abc@mail.ru')&quot;; <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>mysql_query($query, $conn)<br>
+<span style='mso-spacerun:yes'>     </span>or die (&quot;</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Нельзя</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>добавить</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>данные</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>в</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>таблицу</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'> <br>
+<span style='mso-spacerun:yes'>             </span>$table: &quot;
+.mysql_error()); <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>print</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> &quot;&lt;</span><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>p</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&gt;Данные в таблицу $</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'>table</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>
+дбавлены&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>mysql_close($conn); <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>?&gt; &lt;/body&gt; &lt;/html&gt; <o:p></o:p></span></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1680" style='position:absolute;
+ z-index:2' from=".9pt,11.7pt" to="483.3pt,11.7pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:2;left:-1px;top:14px;width:647px;height:17px'><img
+width=647 height=3 src="lab5-t.files/image001.gif" v:shapes="_x0000_s1680"></span><![endif]><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+<p>Обратите внимание на
+то, что мы не указываем значение поля</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> id</span>. Это поле изменяется автоматически. </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'><o:p></o:p></span></p>
+
+<p>Естественно, что при
+каждом выполнении программы из листинга 1.1 в таблицу будет добавляться новая
+запись, содержащая одни и те же данные. В листинге 1.2 приведена программа,
+которая добавляет в таблицу данные, введенные пользователем.<o:p></o:p></span></p>
+
+<p><b>Листинг 1.2. Добавление в базу
+данных информации, <br>
+<span style='mso-spacerun:yes'>                        </span>введенной
+пользователем<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='page-break-after:avoid'><!--[if gte vml 1]><v:line
+ id="_x0000_s1681" style='position:absolute;z-index:3' from=".9pt,11.7pt" to="483.3pt,11.7pt"
+ o:allowincell="f" strokeweight="2pt"/><![endif]--><![if !vml]><span
+style='mso-ignore:vglayout;position:relative;z-index:3;left:-1px;top:14px;
+width:647px;height:17px'><img width=647 height=3 src="lab5-t.files/image001.gif"
+v:shapes="_x0000_s1681"></span><![endif]><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;html&gt;
+&lt;head&gt; <br>
+&lt;title&gt; Листинг 1.2. Добавление в базу данных <br>
+<span style='mso-spacerun:yes'>        </span>информации, введенной
+пользователем<br>
+&lt;/title&gt; &lt;/head&gt; &lt;body&gt; <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;?php <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'>function <b style='mso-bidi-font-weight:
+normal'>Add_to_database</b>($domain, $myname, $mail, <br>
+<span style='mso-spacerun:yes'>                         </span><b
+style='mso-bidi-font-weight:normal'>&amp;</b>$dberror)<br>
+</span><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   </span>{<span
+style='mso-spacerun:yes'>  </span>#1<br>
+<span style='mso-spacerun:yes'>    </span>$user = &quot;root&quot;;<br>
+<span style='mso-spacerun:yes'>    </span>$pass = &quot;pass&quot;; $db =
+&quot;sample&quot;; <br>
+<span style='mso-spacerun:yes'>    </span>$table = &quot;domains&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>    </span>$conn
+= mysql_connect(&quot;localhost&quot;, $user, $pass); <br>
+<span style='mso-spacerun:yes'>    </span>if (!$conn )<br>
+<span style='mso-spacerun:yes'>      </span>{ $dberror = &quot;</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Нет</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>соединения</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>с</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>
+MySQL </span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>сервером</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'>&quot;;<br>
+<span style='mso-spacerun:yes'>        </span>return false; } <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>    </span>if (!
+mysql_select_db($db, $conn))<br>
+<span style='mso-spacerun:yes'>      </span>{ $dberror = mysql_error();<br>
+<span style='mso-spacerun:yes'>        </span>return false;<br>
+<span style='mso-spacerun:yes'>      </span>}<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>$query = &quot;INSERT INTO $table (domain, myname,
+mail)<br>
+<span style='mso-spacerun:yes'>          </span>VALUES('$domain', '$name',
+'$mail')&quot;; <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>    </span>if (!
+mysql_query($query, $conn))<br>
+<span style='mso-spacerun:yes'>      </span>{ $dberror = mysql_error();<br>
+<span style='mso-spacerun:yes'>        </span>return false;<br>
+<span style='mso-spacerun:yes'>      </span>} <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   
+</span>return true;<br>
+<span style='mso-spacerun:yes'>   </span>}<span style='mso-spacerun:yes'> 
+</span>#1<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'>function <b style='mso-bidi-font-weight:
+normal'>Write_form()<br>
+</b></span><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   </span>{<span
+style='mso-spacerun:yes'>  </span>#2<br>
+<span style='mso-spacerun:yes'>    </span>global $PHP_SELF;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>    </span>print
+&quot;&lt;form action='$PHP_SELF' <br>
+<span style='mso-spacerun:yes'>            </span>method='POST'&gt;\n&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>    </span></span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>print &quot;&lt;p&gt;Введите
+имя домена: \n&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'><span
+style='mso-spacerun:yes'>    </span></span><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>print &quot;&lt;input
+type='text' name='domain'&gt; &quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>    </span>print
+&quot;&lt;p&gt;</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Введите</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>ваш</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>
+e-mail: \n&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>    </span>print
+&quot;&lt;input type='text' name='mail'&gt; &quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>    </span></span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>print &quot;&lt;p&gt;Введите
+вашу фамилию: \n&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'><span
+style='mso-spacerun:yes'>    </span></span><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>print &quot;&lt;input
+type='text' name='myname'&gt; &quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>    </span>print
+&quot;&lt;p&gt;&lt;input type='submit' value='</span><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>Записать</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>! </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>'&gt;\n<br>
+<span style='mso-spacerun:yes'>           </span>&lt;/form&gt;\n&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'><span
+style='mso-spacerun:yes'>   </span>}<span style='mso-spacerun:yes'>  </span>#2<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'><span
+style='mso-spacerun:yes'>    </span>// Ввод данных в таблицу<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>if
+(isset($domain) &amp;&amp; isset($myname) &amp;&amp; isset($mail) )<br>
+<span style='mso-spacerun:yes'>   </span>{<span style='mso-spacerun:yes'> 
+</span>#3<br>
+<span style='mso-spacerun:yes'>    </span>// Обязательно проверить, что вводит
+пользователь! <br>
+<span style='mso-spacerun:yes'>    </span></span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>$dberror
+= &quot;&quot;;<br>
+<span style='mso-no-proof:yes'><span style='mso-spacerun:yes'>    </span>$ret =
+<b style='mso-bidi-font-weight:normal'>Add_to_database</b>($domain, $myname,
+$mail, <br>
+<span style='mso-spacerun:yes'>                           </span>$dberror); <o:p></o:p></span></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>    </span>if
+(!$ret)<br>
+<span style='mso-spacerun:yes'>          </span>{print &quot;</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Ошибка</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'>: $dberror&lt;br&gt;&quot;;}<br>
+<span style='mso-spacerun:yes'>    </span>else<span style='mso-spacerun:yes'> 
+</span>print &quot;</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>Спасибо</span><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&quot;;<br>
+<span style='mso-spacerun:yes'>   </span>}<span style='mso-spacerun:yes'> 
+</span>#3<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='mso-pagination:widow-orphan lines-together'><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US;mso-no-proof:yes'>else <b style='mso-bidi-font-weight:normal'>Write_form()</b>;
+<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>?&gt; &lt;/body&gt; &lt;/html&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1682" style='position:absolute;
+ z-index:4' from=".9pt,11.7pt" to="483.3pt,11.7pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:4;left:-1px;top:14px;width:647px;height:17px'><img
+width=647 height=3 src="lab5-t.files/image001.gif" v:shapes="_x0000_s1682"></span><![endif]><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+
+<p>В программе из
+листинга 1.2 мы для простоты и краткости опустили один очень важный
+момент&nbsp;— нами не проверялись данные, введенные пользователем. А так
+поступать, вообще-то, не следует. Нельзя доверять пользователю в вопросах
+достоверности данных. Все данные, введенные им в форму, нужно тщательно
+проверять.</p>
+
+<p>Нами проверяется
+существование переменных</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> $domain, $myname </span> и</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> $mail</span>. Если эти переменные
+определены, то мы можем быть уверены, что форма передана, и вызываем функцию</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> Add_to_database()</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'>.<o:p></o:p></span></p>
+
+<p>Функция</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> Add_to_database() </span>имеет
+4 аргумента: переменные</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> $domain, $myname, $mail, </span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'>которые переданы
+пользователем, и строку</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> $dberror</span>. В эту строку будет записано сообщение об
+ошибке, если такая произойдет. Поэтому мы передаем эту переменную </span><u><span
+style='font-size:12.0pt;mso-bidi-font-size:14.0pt;font-family:"Times New Roman"'>по
+ссылке</span></u>. Все изменения, произошедшие с данной
+переменной внутри функции, повлияют </span><u>на саму переменную</span></u>,
+а не на ее копию.<o:p></o:p></span></p>
+
+<p>Нами создается
+подключение к серверу MySQL, и если оно не происходит, то прекращаем выполнение
+программы, вернув значение</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> false</span>. Мы выбираем базу данных, содержащую таблицу</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> domains </span>и
+строим SQL-запрос, добавляющий переданные пользователем данные в таблицу. Этот
+запрос нами передается функции</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> mysql_query()</span>. Если хотя бы в одной из функций</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mysql_select_db() </span>или
+в</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mysql_query()
+</span>произойдет ошибка, то строка с описанием этой ошибки будет
+записана в переменную</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> $dberror </span>и функция вернет значение</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> false</span>.
+Если все в порядке, функция возвращает</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> true</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'>.<o:p></o:p></span></p>
+
+<p>В самой программе у
+нас есть возможность проверить значение, возвращенное функцией</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> Add_to_database()</span>.
+Если функция вернула значение</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> true</span>, то мы можем быть уверены в том, что данные
+добавлены. Если нет, то это означает, что произошла ошибка. В таком случае
+выводим сообщение об ошибке на экран браузера. Мы знаем, что описание этой
+ошибки содержится в переменной</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> $dberror</span>, поэтому включаем ее в текст сообщения.<o:p></o:p></span></p>
+
+<p>Если в самом первом
+операторе</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> if </span>мы
+обнаруживаем, что одна из переменных&nbsp;—</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> $domain, $myname </span>или</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> $mail&nbsp;</span>—
+не определена, то это означает, что данные не переданы пользователем. В таком
+случае вызываем функцию</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> Write_form()</span>, которая выводит форму на экран
+пользователя.<o:p></o:p></span></p>
+
+<p>Относительно функции</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mysql_query() </span>нужно
+помнить следующее: ее аргумент, т.е. строка запроса к базе данных, <b
+style='mso-bidi-font-weight:normal'>не должна</b> содержать символа «<b
+style='mso-bidi-font-weight:normal'>;</b>». Фактически это означает, что
+аргументом может быть только один SQL-запрос. <o:p></o:p></span></p>
+
+<p>Следовательно, если
+требуется последовательно выполнить несколько SQL-запросов, необходимо столько
+же раз использовать</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> mysql_query()</span>, как в следующем примере:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>$query = &quot;INSERT INTO domains (domain,
+myname, mail)<br>
+<span style='mso-spacerun:yes'>          </span>values('aaa.com', 'aaa',
+'aaa@mail.ru')&quot;; <br>
+$result = mysql_query($query);<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>$query = &quot;INSERT INTO domains (domain,
+myname, mail)<br>
+<span style='mso-spacerun:yes'>          </span>values('bbb.com', 'bbb',
+'bbb@mail.ru')&quot;; <br>
+$result = mysql_query($query);<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>$query = &quot;INSERT INTO domains (domain,
+myname, mail)<br>
+<span style='mso-spacerun:yes'>          </span>values('ddd.com', 'ddd',
+'ddd@mail.ru')&quot;; <br>
+$result = mysql_query($query);<o:p></o:p></span></p>
+
+<p><b>Получение значения автоматически
+изменяемого поля</b></p>
+
+<p>В предыдущих примерах
+мы добавляли записи в таблицу, не беспокоясь о значении поля</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> id</span>,
+которое автоматически увеличивалось при каждом создании новой записи. Если нам
+понадобится значение этого поля для некоторой записи, мы всегда можем его
+получить с помощью SQL-запроса. Однако как поступить, если это значение нам
+нужно немедленно? В языке РНР есть функция</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> mysql_insert_id()</span>, возвращающая
+значение ключа последней добавленной записи. Этой функции нужно передать
+идентификатор подключения, а если его опустить, то будет использовано последнее
+подключение.<o:p></o:p></span></p>
+
+<p>Таким образом, если
+нам необходимо сообщить пользователю номер, присвоенный его заказу, мы можем
+для этого воспользоваться функцией</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> mysql_insert_id() </span>непосредственно
+после добавления новых данных в таблицу.</p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>$query = &quot;INSERT INTO domains (domain,
+myname, mail) <br>
+<span style='mso-spacerun:yes'>          </span>values('$domain', '$myname,
+'$mail')&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>mysql_query($query, $conn);<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>$id = mysql_insert_id();<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>print
+&quot;Спасибо. Ваш номер - $id. <br>
+Пожалуйста используйте его в других запросах.&quot;;<o:p></o:p></span></p>
+
+<p><b>Доступ к информации</b></p>
+
+<p>Мы уже умеем добавлять
+данные в базу данных, но необходимо еще и уметь их оттуда читать. Вы, наверное,
+догадываетесь, что для этого нужно сделать SQL-запрос типа</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> SELECT</span>,
+но как воспользоваться результатами этого запроса, т.е. возвращенными записями?
+При успешном выполнении запроса функция</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> mysql_query() </span>возвращает
+идентификатор результата запроса, и данный идентификатор мы можем передавать
+другим функциям для обработки результата.<o:p></o:p></span></p>
+
+<p><b>Число записей, найденных в запросе</b></p>
+
+<p>Узнать число записей,
+возвращенных в результате выполнения запроса</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> SELECT</span>, можно с помощью
+функции</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>
+mysql_num_rows()</span>. Этой функции нужно передать идентификатор
+запроса, а возвращает она число записей, содержащихся в этом результате.<o:p></o:p></span></p>
+
+<p><b>Результат запроса</b></p>
+
+<p>После выполнения
+запроса</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> SELECT </span>и
+получения его идентификатора вы можете в цикле просмотреть все записи,
+найденные в результате запроса. РНР создает для вас внутренний указатель, в
+котором записана позиция в наборе записей результата. Этот указатель автоматически
+перемещается на следующую позицию после обращения к текущей записи.<o:p></o:p></span></p>
+
+<p>С помощью функции</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mysql_fetch<span
+style='mso-no-proof:yes'>_row</span>() </span>можно для каждой
+записи получить массив, состоящий из ее полей. Этой функции нужно передать
+идентификатор запроса, а вернет она массив. По достижении конца запроса функция</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mysql_fetch<span
+style='mso-no-proof:yes'>_row</span>() </span>вернет значение</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> false</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'>.
+<o:p></o:p></span></p>
+
+<p><b>Чтение отдельных полей</b><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'><o:p></o:p></span></p>
+
+<p>Когда вы, выполнив
+запрос</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> SELECT</span>,
+получили идентификатор результата от функции</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> mysql_query()</span>, то можете определить
+количество возвращенных полей с помощью функции</span><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'> mysql_num_fields()</span>.
+Этой функции нужно передать идентификатор результата, а возвратит она целое
+число, равное количеству найденных полей.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'>$result =
+mysql_query(&quot;SELECT * from domains&quot;);<br>
+$num_fields = mysql_num_fields($result);<o:p></o:p></span></p>
+
+<p>Каждое поле в этом
+наборе имеет свой номер, начиная с нуля, и вы можете, указав идентификатор
+результата и номер поля, определить все его свойства, включая имя, тип,
+максимальную длину и флаги.</p>
+
+<p>Для выяснения имени
+поля передайте идентификатор результата и номер поля функции</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mysql_field_name()</span>.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'>$result =
+mysql_query(&quot;SELECT * from domains&quot;);<br>
+$num_fields = mysql_num_fields($result); <br>
+for ($x=0; $x&lt;$num_fields; $x++)<br>
+<span style='mso-spacerun:yes'>     </span>mysql_field_name($result,
+$x).&quot;&lt;br&gt;\n&quot;;<o:p></o:p></span></p>
+
+<p>Для того чтобы узнать
+максимальную длину поля, передайте идентификатор результата и номер поля
+функции</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>
+mysql_field_len()</span>.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'>$result =
+mysql_query(&quot;SELECT * from domains&quot;);<br>
+$num_fields = mysql_num_fields($result); <br>
+for ($x=0; $x&lt;$num_fields; $x++)<br>
+<span style='mso-spacerun:yes'>     </span>mysql_field_len($result,
+$x).&quot;&lt;br&gt;\n&quot;;<o:p></o:p></span></p>
+
+<p>Для того чтобы узнать
+флаги, связанные с этим полем, передайте идентификатор результата и номер поля
+функции</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>
+mysql_field_flags()</span>.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'>$result =
+mysql_query(&quot;SELECT * from domains&quot;);<br>
+$num_fields = mysql_num_fields($result); <br>
+for ($x=0; $x&lt;$num_fields; $x++)<br>
+<span style='mso-spacerun:yes'>    </span><span
+style='mso-spacerun:yes'> </span>mysql_field_flags($result,
+$x).&quot;&lt;br&gt;\n&quot;;<o:p></o:p></span></p>
+
+<p>Точно так же можно
+выяснить тип поля.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'>$result =
+mysql_query(&quot;SELECT * from domains&quot;); <br>
+$num_fields = mysql_num_fields($result); <br>
+for ($x=0; $x&lt;$num_fields; $x++)<br>
+<span style='mso-spacerun:yes'>     </span>mysql_field_type($result,
+$x).&quot;&lt;br&gt;\n&quot;;<o:p></o:p></span></p>
+
+<p>В листинге 1.3
+приведен пример выполнения запроса</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> SELECT</span>, который запрашивает
+все строки таблицы</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>
+domains</span>, затем определяет размер этой таблицы с помощью
+функции</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>
+mysql_num_rows()</span> и выводит на экран всю таблицу</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> domains</span>.<o:p></o:p></span></p>
+
+<p><b>Листинг 1.3. Вывод всех записей таблицы<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1685" style='position:absolute;
+ z-index:5' from=".9pt,11.7pt" to="483.3pt,11.7pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:5;left:-1px;top:14px;width:647px;height:17px'><img
+width=647 height=3 src="lab5-t.files/image001.gif" v:shapes="_x0000_s1685"></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;html&gt;
+&lt;head&gt;<br>
+&lt;title&gt; Листинг 1.3. Вывод всех записей таблицы <br>
+&lt;/title&gt; &lt;/head&gt; &lt;body&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;?php<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>$user = &quot;root&quot;; // <br>
+$pass = &quot;pass&quot;; $db = &quot;sample&quot;;<br>
+$table = &quot;domains&quot;;<br>
+$conn = mysql_connect(&quot;localhost&quot;, $user, $pass);<br>
+if (! $conn ) die(&quot;</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>Нет</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-ansi-language:EN-US'> </span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>соединения</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-ansi-language:EN-US'> </span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>с</span><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'> MySQL&quot;);<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>mysql_select_db($db, $conn)<br>
+<span style='mso-spacerun:yes'>     </span>or die (&quot;</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Нельзя</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>открыть</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'> $db: &quot;.mysql_error());<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>$result = mysql_query(&quot;SELECT * FROM
+$table&quot;); <br>
+$num_rows = mysql_num_rows($result);<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>//
+количество записей в запросе<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>print
+&quot;&lt;P&gt;В таблице $</span><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>table</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> содержится $num_rows
+строк&quot;; <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>$num_fields = mysql_num_fields($result); <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>// </span><u><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'>количество</span></u><u><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span></u><u><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>столбцов</span></u><u><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span></u><u><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>в</span></u><u><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span></u><u><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>запросе</span></u><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>print &quot;&lt;p&gt;&lt;table
+border=1&gt;\n&quot;; <br>
+print &quot;&lt;tr&gt;\n&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>for ($x=0; $x &lt; $num_fields; $x++)<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><span style='mso-tab-count:1'>     </span>{<br>
+<span style='mso-spacerun:yes'>     </span>$name = mysql_field_name($result,
+$x); <br>
+<span style='mso-tab-count:1'>     </span><span
+style='mso-spacerun:yes'> </span>print
+&quot;\t&lt;th&gt;$name&lt;/th&gt;\n&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>     </span></span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>// <u>печатаем имя $x-того
+столбца</u><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'><span
+style='mso-tab-count:1'>     </span>}<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'><span
+style='mso-tab-count:1'>     </span><span style='mso-spacerun:yes'> </span></span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'>print &quot;&lt;/tr&gt;\n&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>while ($a_row = mysql_fetch_row($result))<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   
+</span>{<span style='mso-spacerun:yes'>      </span>// </span><u><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>печатаем</span></u><u><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span></u><u><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>содержимое</span></u><u><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span></u><u><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>столбцов</span></u><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'><br>
+<span style='mso-spacerun:yes'>     </span>print &quot;&lt;tr&gt;\n&quot;;<br>
+<span style='mso-spacerun:yes'>     </span>foreach ($a_row as $field)<span
+style='mso-spacerun:yes'>  </span>// $a_row – </span><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>массив</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'><br>
+<span style='mso-spacerun:yes'>     </span>print
+&quot;\t&lt;td&gt;$field&lt;/td&gt;\n&quot;; <br>
+<span style='mso-spacerun:yes'>  </span><span
+style='mso-spacerun:yes'>   </span>print &quot;&lt;/tr&gt;\n&quot;;<br>
+<span style='mso-spacerun:yes'>    </span>}<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>print &quot;&lt;/table&gt;\n&quot;; <br>
+mysql_close($conn); <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>?&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;/body&gt; &lt;/html&gt; <o:p></o:p></span></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1686" style='position:absolute;
+ z-index:6' from=".9pt,11.7pt" to="483.3pt,11.7pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:6;left:-1px;top:14px;width:647px;height:17px'><img
+width=647 height=3 src="lab5-t.files/image001.gif" v:shapes="_x0000_s1686"></span><![endif]><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+
+<p>Функциия</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman";
+mso-ansi-language:EN-US'> <span style='mso-spacerun:yes'> </span></span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'>mysql_fetch_row() </span>возвращает</span><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman";mso-ansi-language:
+EN-US'> </span><массив</span><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman";mso-ansi-language:
+EN-US'>.<o:p></o:p></span></p>
+
+<p>После подключения к
+серверу базы данных и выбора базы мы с помощью функции</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mysql_query() </span>посылаем
+запрос на сервер базы данных. Возвращенный результат запроса сохраняем в
+переменной</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>
+$result. </span>Потом нами будет использоваться эта переменная
+для обращения к результату запроса: в переменной</span><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'> <span style='mso-no-proof:yes'>$num_rows</span>
+</span>мы сохраняем количество записей в запросе, а в переменной</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> <span style='mso-no-proof:
+yes'>$num_fields</span></span>&nbsp;— количество полей (столбцов) в
+запросе. Затем, в цикле, в переменную</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-no-proof:yes'> $name</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> </span>заносим
+название</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> <span
+style='mso-no-proof:yes'>$x</span></span>–того поля таблицы и
+выводим это название в виде ячеек-заголовков</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> <span style='mso-no-proof:yes'>&lt;th&gt;</span></span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'>.<o:p></o:p></span></p>
+
+<p>В условном выражении
+цикла</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> while </span>мы
+присваиваем переменной</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> $a_row </span>значение, возвращенное функцией</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mysql_fetch<span
+style='mso-no-proof:yes'>_row</span>()</span>. Результатом операции
+присваивания является значение ее правого операнда, поэтому данное условное
+выражение имеет значение</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> true</span>, если функция</span><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'> mysql_fetch<span style='mso-no-proof:yes'>_row</span>()
+</span>вернет положительное число. Внутри цикла</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> while </span>мы
+просматриваем массив, записанный в переменной</span><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'> $а_row</span>, и выводим каждый
+элемент этого массива на экран, обрамляя его тегами ячейки таблицы.<o:p></o:p></span></p>
+
+<p>Кроме того, к полям
+записи можно обратиться по имени: функция</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> mysql_fetch_array() </span>возвращает
+ассоциативный массив, в котором в качестве ключа используются имена полей. В
+следующем примере используется эта функция.</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>print
+&quot;&lt;table border=1&gt;\n&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>while ($a_row = mysql_fetch_array($result))<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>print &quot;&lt;tr&gt;\n&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>print &quot;&lt;td&gt;$a_row[mail]&lt;/td&gt;<br>
+<span style='mso-spacerun:yes'>      
+</span>&lt;td&gt;$a_row[domain]&lt;/td&gt;\n&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>print &quot;&lt;/tr&gt;\n&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>print &quot;&lt;/table&gt;\n&quot;;<o:p></o:p></span></p>
+
+<p><b>Изменение данных</b></p>
+
+<p>Данные в таблице можно
+изменять с помощью функции</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> mysql_query() </span>в сочетании с оператором</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> UPDATE</span>.
+Как и ранее, успешное выполнение оператора</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> UPDATE </span>не обязательно
+означает, что данные были фактически изменены. Для того чтобы узнать количество
+измененных данных в таблице, вам придется вызвать функцию</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mysql_affected_rows()</span>.
+Этой функции нужно передать идентификатор подключения. Как и раньше, если
+данный идентификатор опустить, то будет использовано последнее подключение.
+Этой функцией можно пользоваться в сочетании с любым запросом, в результате
+которого данные могли быть изменены (</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'>UPDATE, </span><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>INSERT</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>, </span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>REPLACE</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> </span>или</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-no-proof:yes'> DELETE</span>, но
+не</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> </span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'>SELECT</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>!</span>).<o:p></o:p></span></p>
+
+<p>В листинге 1.4
+приведен пример программы, позволяющей администратору базы данных изменять
+любые данные в поле</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> domain </span>таблицы</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> <span style='mso-no-proof:yes'>domains</span></span>.<o:p></o:p></span></p>
+
+<p><b>Листинг 1.4. Использование
+функции</span></b><b style='mso-bidi-font-weight:normal'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mysql_query() <br>
+</span></b><b style='mso-bidi-font-weight:normal'>для
+изменения данных в таблице<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1718" style='position:absolute;
+ z-index:7' from=".9pt,11.7pt" to="483.3pt,11.7pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:7;left:-1px;top:14px;width:647px;height:17px'><img
+width=647 height=3 src="lab5-t.files/image001.gif" v:shapes="_x0000_s1718"></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;html&gt;
+&lt;head&gt;<br>
+&lt;title&gt; Листинг 1.4. Использование функции mysql_query()<br>
+<span style='mso-spacerun:yes'>        </span>для изменения данных в таблице <br>
+&lt;/title&gt; &lt;/head&gt; &lt;body&gt; <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;?php<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>$user = &quot;root&quot;;<span
+style='mso-spacerun:yes'>  </span>// <br>
+$pass = &quot;pass&quot;; $db = &quot;sample&quot;; $table = &quot;domains&quot;;<br>
+$conn = mysql_connect(&quot;localhost&quot;, $user, $pass); <br>
+if (! $conn ) die(&quot;</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>Нет</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-ansi-language:EN-US'> </span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>соединения</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-ansi-language:EN-US'> </span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>с</span><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'> MySQL&quot;);<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>mysql_select_db($db, $conn) <br>
+or die (&quot;</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Нельзя</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>открыть</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'> $db&quot;); <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>if (isset($domain) &amp;&amp; isset($id)) <br>
+<span style='mso-spacerun:yes'>   </span>{$query = &quot;UPDATE $table <br>
+<span style='mso-spacerun:yes'>              </span>SET domain='$domain'<br>
+<span style='mso-spacerun:yes'>              </span>WHERE id='$id' &quot;; <br>
+<span style='mso-spacerun:yes'>    </span>$result = mysql_query($query); <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>    </span>if (!
+$result) die <br>
+<span style='mso-spacerun:yes'>       </span>(&quot;</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Нельзя</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>обновить</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'>: &quot;.mysql_error()); <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   
+</span>print&quot;&lt;p&gt;</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>Таблица</span><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'> $table </span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'>обновлена</span><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>: &quot;<br>
+<span style='mso-spacerun:yes'>   </span><b style='mso-bidi-font-weight:normal'>.</b>mysql_affected_rows()<b
+style='mso-bidi-font-weight:normal'>.</b>&quot; </span><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>строк</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>изменено</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'>&quot;;<br>
+<span style='mso-spacerun:yes'>   </span>} <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>?&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;p&gt;&lt;form action=&quot;&lt;? print
+$PHP_SELF ?&gt;&quot; method='POST'&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;select name=&quot;id&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;?<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>$result = mysql_query(&quot;SELECT domain, id <br>
+<span style='mso-spacerun:yes'>                       </span>FROM
+$table&quot;);<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>while($a_row = mysql_fetch_array($result))<br>
+<span style='mso-spacerun:yes'>     </span>{<br>
+<span style='mso-spacerun:yes'>      </span>print &quot;&lt;OPTION
+VALUE='$a_row[id]'&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>      </span>if
+(isset($id) &amp;&amp; $id == $a_row[id])<br>
+<span style='mso-spacerun:yes'>          </span>print &quot; SELECTED&quot;; <br>
+<span style='mso-spacerun:yes'>      </span>print &quot;&gt;
+$a_row[domain]\n&quot;;<br>
+<span style='mso-spacerun:yes'>     </span>}<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>mysql_close($conn); <br>
+?&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;/select&gt;<br>
+&amp;nbsp;&amp;nbsp;</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>введите</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-ansi-language:EN-US'> </span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>новое</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-ansi-language:EN-US'> </span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>значение</span><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>: <br>
+&lt;input type=&quot;text&quot; name=&quot;domain&quot;&gt; <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;p&gt;&lt;input type=&quot;submit&quot;
+value=&quot;</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Заменить</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'>&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;/form&gt;
+<br>
+&lt;/body&gt; &lt;/html&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1719" style='position:absolute;
+ z-index:8' from=".9pt,11.7pt" to="483.3pt,11.7pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:8;left:-1px;top:14px;width:647px;height:17px'><img
+width=647 height=3 src="lab5-t.files/image001.gif" v:shapes="_x0000_s1719"></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+
+<p>Мы открываем
+соединение с сервером и выбираем базу данных как обычно. Потом проверяем
+существование переменных</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> $domain </span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+font-family:"Times New Roman"'>и</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> $id</span>. Если они существуют, то мы строим
+SQL-запрос, в котором изменяем значение поля</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> domain </span>для тех записей, у
+которых значение поля</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> id </span>совпадает со значением переменной</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> $id</span>.
+Мы не получим сообщения об ошибке, если попытаемся воспользоваться
+несуществующим значением переменной</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> $id </span>или если значение поля</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> domain </span><и
+так совпадает со значением переменной. Просто в таком случае функция</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mysql_affected_rows() </span>вернет
+нам 0. Полученное значение (в данном примере это должна быть 1) мы выводим на
+экран браузера.<o:p></o:p></span></p>
+
+<p>Нами выводится форма,
+с помощью которой администратор может вносить изменения. Обратите внимание на
+то, что мы опять используем функцию</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> mysql_query() </span>для того, чтобы
+получить значение полей</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> id </span>и</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> domain </span>и использовать их в
+HTML-тексте для формирования списка. Администратор будет выбирать в этом списке
+данные, подлежащие изменению. Если администратор уже передал форму и выбранное
+значение</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> id </span>совпадает
+текущим полем, мы выводим в элемент</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> OPTION </span>строку</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> SELECTED</span>.
+Это делается для того, чтобы новое значение, выбранное администратором, было
+выделено в форме. <o:p></o:p></span></p>
+
+<p><b>Важное замечание.</span></b> Если аргумент функции</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mysql_query() </span>является
+переменной, значение которой было передано из другой программы с помощью метода</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> </span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>POST</span>,
+и в этой переменной содержится SQL-запрос, в котором есть апострофы, например <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='text-align:justify'><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>$<span
+style='mso-no-proof:yes'>query</span> = <span style='mso-no-proof:yes'>&quot;SELECT
+* FROM domains</span> <span style='mso-no-proof:yes'>where id='2'</span></span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman";
+mso-ansi-language:EN-US'> </span><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'>&quot;;</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman";
+mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p>то эти апострофы будут
+экранированы обратной косой чертой (</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'>\</span>). Для того, чтобы можно было
+использовать значение переменной</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> $<span style='mso-no-proof:yes'>query</span> </span>в
+функции</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>
+mysql_query()</span>, необходимо применить функцию</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> </span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>stripslashes</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>()</span>,
+которая убирает все управляющие символы (в том числе и обратную косую черту
+перед апострофами) из указанной строки.<o:p></o:p></span></p>
+
+<p>В листинге 1.5
+приведен пример программы, использующей функцию</span><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'> </span><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>stripslashes</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>()</span>.<o:p></o:p></span></p>
+
+<p><b>Листинг 1.5. Использование
+функции</span></b><b style='mso-bidi-font-weight:normal'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> </span></b><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>stripslashes</span></b><b
+style='mso-bidi-font-weight:normal'><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>()</span></b><b style='mso-bidi-font-weight:normal'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman"'><o:p></o:p></span></b></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1722" style='position:absolute;
+ z-index:11' from=".9pt,11.7pt" to="483.3pt,11.7pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:11;left:-1px;top:14px;width:647px;height:17px'><img
+width=647 height=3 src="lab5-t.files/image001.gif" v:shapes="_x0000_s1722"></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;html&gt;
+&lt;head&gt;<br>
+&lt;title&gt;Листинг 1.5. Использование</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>функции</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'> stripslashes()<br>
+&lt;/title&gt; &lt;/head&gt; &lt;body&gt; <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;?php<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>$user = &quot;root&quot;; $pass = &quot;pass&quot;;
+$db = &quot;sample&quot;;<br>
+$table = &quot;domains&quot;;<br>
+$conn = mysql_connect(&quot;localhost&quot;, $user, $pass); <br>
+if (! $conn ) die(&quot;</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>Нет</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-ansi-language:EN-US'> </span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>соединения</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-ansi-language:EN-US'> </span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>с</span><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'> MySQL&quot;);<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>mysql_select_db($db, $conn) <br>
+or die (&quot;</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Нельзя</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>открыть</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'> $db&quot;); <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>$<span style='mso-no-proof:yes'>query</span> = <span
+style='mso-no-proof:yes'>&quot;SELECT * FROM </span>$table <span
+style='mso-no-proof:yes'>WHERE id='2'</span></span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman";
+mso-ansi-language:EN-US'> </span><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US;mso-no-proof:yes'>&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>settype($<span style='mso-no-proof:yes'>query</span>,
+string);<br>
+$plain_<span style='mso-no-proof:yes'>query =</span> stripslashes($<span
+style='mso-no-proof:yes'>query</span>);<br>
+$result = <span style='mso-no-proof:yes'>mysql_query($</span>plain_<span
+style='mso-no-proof:yes'>query);<br>
+</span>$a_row = mysql_fetch_array($result);<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>print &quot;&lt;p&gt;</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Ваше</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>имя</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>:
+$a_row[myname]&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>mysql_close($conn); <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>?&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;/body&gt; &lt;/html&gt; <o:p></o:p></span></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1723" style='position:absolute;
+ z-index:12' from=".9pt,11.7pt" to="483.3pt,11.7pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:12;left:-1px;top:14px;width:647px;height:17px'><img
+width=647 height=3 src="lab5-t.files/image001.gif" v:shapes="_x0000_s1723"></span><![endif]><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+
+<p>Перед использованием
+функции</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> </span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'>stripslashes</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>() </span>желательно явно задать тип «строка» для
+переменной, которая будет ее аргументом, что делается с помощью функции</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> </span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>settype</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>()</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'>.<o:p></o:p></span></p>
+
+<p><b>Получение информации о базе данных</b></p>
+
+<p>До сих пор мы
+рассматривали функции, предназначенные для сохранения и чтения данных. Однако в
+РНР есть несколько функций для того, чтобы вы могли получить дополнительную
+информацию о базах данных, доступных в данном подключении.<o:p></o:p></span></p>
+
+<p><b>Список баз данных</b></p>
+
+<p>Список всех баз
+данных, доступных для данного подключения, можно получить с помощью функции</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mysql_list_dbs()</span>.
+Этой функции нужно передать идентификатор подключения, а вернет она другой
+идентификатор, с помощью которого можно получить список всех доступных баз
+данных. Для этого вам необходимо вызвать функцию</span><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'> mysql_tablename() </span>для
+каждой найденной базы данных. Эта функция имеет два аргумента: идентификатор
+результата и индекс базы данных. Функция возвращает имя указанной базы данных.
+Базы данных индексируются, начиная с нуля. Для того чтобы узнать, сколько баз
+данных найдено функцией</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> mysql_list_dbs()</span>, нужно вызвать функцию</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mysql_num_rows()</span>,
+передав ей идентификатор результата, возвращенный функцией</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mysql_list_dbs()</span>.<o:p></o:p></span></p>
+
+<p>Имейте в виду, что
+идентификатор результата, возвращенный функцией</span><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'> mysql_list_dbs()</span>,
+можно использовать аналогично тому, как это мы делали с идентификатором
+результата, возвращенным функцией</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> mysql_query()</span>. В частности, его
+можно передавать функции</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> mysql_fetch_row()</span>, которая вернет ассоциативный массив с
+именами баз данных.<o:p></o:p></span></p>
+
+<p><b>Список таблиц в базе данных</b></p>
+
+<p>С помощью функции</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mysql_list_tables() </span>есть
+возможность получить список всех таблиц, входящих в указанную базу данных. Этой
+функции нужно передать имя базы данных и необязательный аргумент</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman";
+mso-ansi-language:EN-US'>&nbsp;</span>— идентификатор подключения. Если
+указанная база данных существует и вы имеет соответствующие права, то функция
+вернет вам идентификатор результата, который можно обработать функцией</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mysql_fetch_row() </span>или
+аналогичной ей.<o:p></o:p></span></p>
+
+<p>В следующем примере
+показано, как с помощью функции</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> mysql_list_tables() </span>можно получить список всех таблиц базы
+данных.<o:p></o:p></span></p>
+
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>$result = mysql_list_tables(&quot;sample&quot;,
+$conn); <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>while ($tab_rows = mysql_fetch_row($result)) <br>
+<span style='mso-spacerun:yes'>       </span>print
+&quot;$tab_rows[0]&lt;br&gt;\n&quot;;<o:p></o:p></span></p>
+
+<p><b>Структура базы данных</b></p>
+
+<p>В листинге 1.6
+приведена программа, в которой с помощью всех рассмотренных ранее средств мы
+получаем информацию о базе данных, доступной нам через существующее
+подключение.</p>
+
+<p><b>Листинг 1.6.
+Вывод структуры базы данных</b></p>
+
+<p class=MsoPlainText style='page-break-after:avoid'><!--[if gte vml 1]><v:line
+ id="_x0000_s1720" style='position:absolute;z-index:9' from=".9pt,11.7pt" to="483.3pt,11.7pt"
+ o:allowincell="f" strokeweight="2pt"/><![endif]--><![if !vml]><span
+style='mso-ignore:vglayout;position:relative;z-index:9;left:-1px;top:14px;
+width:647px;height:17px'><img width=647 height=3 src="lab5-t.files/image001.gif"
+v:shapes="_x0000_s1720"></span><![endif]><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;html&gt;
+&lt;head&gt;<br>
+&lt;title&gt; Листинг 1.6. Вывод структуры базы данных &lt;/title&gt;
+&lt;/head&gt; &lt;body&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;?php<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>$user = &quot;root&quot;; $pass = &quot;pass&quot;;
+<br>
+$db = &quot;<b style='mso-bidi-font-weight:normal'>study</b>&quot;;<br>
+$conn = mysql_connect(&quot;localhost&quot;, $user, $pass);<br>
+if (! $conn ) die(&quot;</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>Нет</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-ansi-language:EN-US'> </span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>соединения</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;
+mso-ansi-language:EN-US'> </span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>с</span><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'> MySQL&quot;); <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>   
+</span>$tab_res = mysql_list_tables($db, $conn); <br>
+<span style='mso-spacerun:yes'>    </span>print
+&quot;&lt;dl&gt;&lt;dd&gt;\n&quot;; <br>
+<span style='mso-spacerun:yes'>    </span>while ($tab_rows =
+mysql_fetch_row($tab_res))<br>
+<span style='mso-spacerun:yes'>    </span><span
+style='mso-spacerun:yes'>  </span>{<span style='mso-spacerun:yes'> 
+</span>#1<span style='mso-spacerun:yes'>            </span></span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>созд</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>-</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>е</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>массива</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>имен</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>таблиц</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'><br>
+<span style='mso-spacerun:yes'>       </span>print
+&quot;&lt;b&gt;$tab_rows[0]&lt;/b&gt;\n&quot;;<br>
+//$tab_rows[0] </span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>т</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'>.</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>к</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'>. </span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>работаем</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>только</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>с</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>одной</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>БД</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'><br>
+<span style='mso-spacerun:yes'>       </span>$query_res = mysql_query(<br>
+<span style='mso-spacerun:yes'>                   </span>&quot;SELECT * from
+$tab_rows[0]&quot;); <br>
+<span style='mso-spacerun:yes'>       </span>$num_fields = mysql_num_fields($query_res);
+<br>
+<span style='mso-spacerun:yes'>       </span>print
+&quot;&lt;dl&gt;&lt;dd&gt;\n&quot;; <br>
+<span style='mso-spacerun:yes'>       </span>for ($x=0; $x&lt;$num_fields;
+$x++)<br>
+<span style='mso-spacerun:yes'>        </span>{<span style='mso-spacerun:yes'> 
+</span>#2<br>
+<span style='mso-spacerun:yes'>         </span>print &quot;&lt;i&gt;&quot;;<br>
+<span style='mso-spacerun:yes'>         </span>print
+mysql_field_type($query_res, $x);<br>
+<span style='mso-spacerun:yes'>            </span>// </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>тип</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>поля</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'><br>
+<span style='mso-spacerun:yes'>         </span>print &quot;&lt;/i&gt;
+&lt;i&gt;&quot;;<br>
+<span style='mso-spacerun:yes'>         </span>print mysql_field_len($query_res,
+$x);<br>
+<span style='mso-spacerun:yes'>            </span>// max-</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>ая</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>длина</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>поля</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'><br>
+<span style='mso-spacerun:yes'>         </span>print &quot;&lt;/i&gt;
+&lt;b&gt;&quot;;<br>
+<span style='mso-spacerun:yes'>         </span>print
+mysql_field_name($query_res, $x);<br>
+<span style='mso-spacerun:yes'>            </span>// </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>имя</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>поля</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'><br>
+<span style='mso-spacerun:yes'>         </span>print &quot;&lt;/b&gt;
+&lt;i&gt;&quot;;<br>
+<span style='mso-spacerun:yes'>         </span>print
+mysql_field_flags($query_res, $x);<br>
+<span style='mso-spacerun:yes'>            </span>// </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>флаги</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>поля</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>
+(not null </span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>и</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>т</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>.</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>п</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>.)<br>
+<span style='mso-spacerun:yes'>         </span>print
+&quot;&lt;/i&gt;&lt;br&gt;\n&quot;;<br>
+<span style='mso-spacerun:yes'>        </span>}<span style='mso-spacerun:yes'> 
+</span>#2<br>
+<span style='mso-spacerun:yes'>         </span>print &quot;&lt;/dl&gt;\n&quot;;<br>
+<span style='mso-spacerun:yes'>      </span>}<span style='mso-spacerun:yes'> 
+</span>#1 <br>
+<span style='mso-spacerun:yes'>    </span>print &quot;&lt;/dl&gt;\n&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>mysql_close($conn); <br>
+?&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>&lt;/body&gt; &lt;/html&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1721" style='position:absolute;
+ z-index:10' from=".9pt,11.7pt" to="483.3pt,11.7pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:10;left:-1px;top:14px;width:647px;height:17px'><img
+width=647 height=3 src="lab5-t.files/image001.gif" v:shapes="_x0000_s1721"></span><![endif]><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+
+<p>Мы, как обычно,
+подключаемся к MySQL-серверу и вызываем функцию</span><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'> mysql_list_tables()</span>,
+в которой указываем имя конкретной базы данных возвращает нам идентификатор
+результата. <o:p></o:p></span></p>
+
+<p>Функция</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mysql_list_tables() </span>возвращает
+идентификатор результата, который мы передаем функции</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mysql_fetch_row() </span>и
+начинаем цикл, перебирая имена таблиц. Если бы мы просматривали структуру нескольких
+баз данных, то массив таблиц </span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>$tab_rows</span> содержал бы значения, соответствующие всем
+базам данных. В данном же случае, для одной базы массив </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>$tab_rows</span>
+имеет лишь одно значение: </span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>$tab_rows[0].</span> <o:p></o:p></span></p>
+
+<p>Нами выводится имя
+таблицы и составляется SQL-запрос</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> SELECT</span>, в котором
+запрашиваются имена полей таблицы. Запрос мы передаем функции</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> mysql_query() </span>и
+получаем еще один идентификатор результата.<o:p></o:p></span></p>
+
+<p>Этот идентификатор мы
+передаем функции</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>
+mysql_num_fields() </span>и получаем количество полей в найденном
+наборе.<o:p></o:p></span></p>
+
+<p>Нами выполняется цикл</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> for</span>,
+в котором перебираются все поля. В переменной</span><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'> $х </span>содержится номер
+текущего поля. Мы вызываем функции, рассмотренные ранее, которые выводят
+информацию о каждом поле. Эта информация выводится нами на браузер.<o:p></o:p></span></p>
+
+<p>При выполнении
+программы мы должны получить полный список всех таблиц и характеристики полей,
+доступных в данном подключении. Ниже показан пример такого вывода.<o:p></o:p></span></p>
+
+<p class=Normal><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman";
+mso-ansi-language:EN-US;mso-no-proof:yes'>cust</span></b><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman";
+mso-ansi-language:EN-US;mso-no-proof:yes'> <o:p></o:p></span></p>
+
+<p class=a style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:
+17.85pt;margin-bottom:.0001pt'><i style='mso-bidi-font-style:normal'><span
+lang=EN-US style='font-family:"Times New Roman";mso-ansi-language:EN-US;
+mso-no-proof:yes'>int</span></i><span lang=EN-US style='font-family:"Times New Roman";
+mso-ansi-language:EN-US;mso-no-proof:yes'> <i style='mso-bidi-font-style:normal'>4</i>
+<b style='mso-bidi-font-weight:normal'>cnum</b> <i style='mso-bidi-font-style:
+normal'>not_null primary_key</i><br>
+<i style='mso-bidi-font-style:normal'>string</i> <i style='mso-bidi-font-style:
+normal'>10</i> <b style='mso-bidi-font-weight:normal'>cname</b> <i
+style='mso-bidi-font-style:normal'>not_null</i><br>
+<i style='mso-bidi-font-style:normal'>string</i> <i style='mso-bidi-font-style:
+normal'>10</i> <b style='mso-bidi-font-weight:normal'>city</b> <i
+style='mso-bidi-font-style:normal'>not_null</i><br>
+<i style='mso-bidi-font-style:normal'>int</i> <i style='mso-bidi-font-style:
+normal'>6</i> <b style='mso-bidi-font-weight:normal'>rating</b> <i
+style='mso-bidi-font-style:normal'>not_null</i><br>
+<i style='mso-bidi-font-style:normal'>int</i> <i style='mso-bidi-font-style:
+normal'>5</i> <b style='mso-bidi-font-weight:normal'>snum</b> <o:p></o:p></span></p>
+
+<p class=Normal><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman";
+mso-ansi-language:EN-US;mso-no-proof:yes'>ord</span></b><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman";
+mso-ansi-language:EN-US;mso-no-proof:yes'> <o:p></o:p></span></p>
+
+<p class=a style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:
+17.85pt;margin-bottom:.0001pt'><i style='mso-bidi-font-style:normal'><span
+lang=EN-US style='font-family:"Times New Roman";mso-ansi-language:EN-US;
+mso-no-proof:yes'>int</span></i><span lang=EN-US style='font-family:"Times New Roman";
+mso-ansi-language:EN-US;mso-no-proof:yes'> <i style='mso-bidi-font-style:normal'>4</i>
+<b style='mso-bidi-font-weight:normal'>onum</b> <i style='mso-bidi-font-style:
+normal'>not_null primary_key</i><br>
+<i style='mso-bidi-font-style:normal'>real</i> <i style='mso-bidi-font-style:
+normal'>7</i> <b style='mso-bidi-font-weight:normal'>amt</b> <i
+style='mso-bidi-font-style:normal'>not_null</i><br>
+<i style='mso-bidi-font-style:normal'>date</i> <i style='mso-bidi-font-style:
+normal'>10</i> <b style='mso-bidi-font-weight:normal'>odate</b> <br>
+<i style='mso-bidi-font-style:normal'>int</i> <i style='mso-bidi-font-style:
+normal'>4</i> <b style='mso-bidi-font-weight:normal'>cnum</b> <br>
+<i style='mso-bidi-font-style:normal'>int</i> <i style='mso-bidi-font-style:
+normal'>4</i> <b style='mso-bidi-font-weight:normal'>snum</b> <o:p></o:p></span></p>
+
+<p class=Normal><b style='mso-bidi-font-weight:normal'><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman";
+mso-ansi-language:EN-US;mso-no-proof:yes'>sal</span></b><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman";
+mso-ansi-language:EN-US;mso-no-proof:yes'> <o:p></o:p></span></p>
+
+<p class=a style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:
+17.85pt;margin-bottom:.0001pt'><i style='mso-bidi-font-style:normal'><span
+lang=EN-US style='font-family:"Times New Roman";mso-ansi-language:EN-US;
+mso-no-proof:yes'>int</span></i><span lang=EN-US style='font-family:"Times New Roman";
+mso-ansi-language:EN-US;mso-no-proof:yes'> <i style='mso-bidi-font-style:normal'>4</i>
+<b style='mso-bidi-font-weight:normal'>snum</b> <i style='mso-bidi-font-style:
+normal'>not_null primary_key</i><br>
+<i style='mso-bidi-font-style:normal'>string</i> <i style='mso-bidi-font-style:
+normal'>10</i> <b style='mso-bidi-font-weight:normal'>sname</b> <i
+style='mso-bidi-font-style:normal'>not_null</i><br>
+<i style='mso-bidi-font-style:normal'>string</i> <i style='mso-bidi-font-style:
+normal'>10</i> <b style='mso-bidi-font-weight:normal'>city</b> <i
+style='mso-bidi-font-style:normal'>not_null</i><br>
+<i style='mso-bidi-font-style:normal'>real</i> <i style='mso-bidi-font-style:
+normal'>7</i> <b style='mso-bidi-font-weight:normal'>comm</b> <i
+style='mso-bidi-font-style:normal'>not_null</i><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<a name=2 class="anchor"></a>
+<h3>2. Включение файлов в документ </h3>
+
+<p>В каждый <span
+class=SpellE>РНР-документ</span> можно включить файл с помощью команды</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> <span class=SpellE>include</span>()</span>.
+После этого текст <span class=SpellE>РНР-программы</span> во включаемом файле
+будет исполняться точно так же, как если бы он был записан во включающем файле
+непосредственно. Этим удобно пользоваться для одной и той же программы во
+многих документах.<o:p></o:p></span></p>
+
+<p>Предположим, вы
+написали очень ценную программу, которой можно и нужно пользоваться во многих
+документах. У вас есть возможность непосредственно вставить текст этой
+программы в каждый документ, где она необходима. Но в таком случае при
+обнаружении ошибки в программе или просто в случае ее модификации вам придется
+вносить изменения в каждом документе, использующем данную программу. Избежать
+этого позволяет оператор</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> <span class=SpellE>include</span>()</span>. Вы можете записать
+свою программу в один документ, а потом включать этот документ в другие.
+Функция</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> <span
+class=SpellE>include</span>() </span>требует одного аргумента</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman";
+mso-ansi-language:EN-US'>&nbsp;</span>- пути к файлу, который нужно включить в
+документ. В листинге 2.1 приведен пример того, как в <span class=GramE>простую</span>
+<span class=SpellE>РНР-программу</span> включается содержимое файла, причем
+содержимое включаемого файла обрабатывается как <span class=SpellE>РНР-программа</span>.<o:p></o:p></span></p>
+
+<p><b>Листинг 2.1. Использование
+функции </span></b><span class=SpellE><b style='mso-bidi-font-weight:normal'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>include</span></b></span><b
+style='mso-bidi-font-weight:normal'><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'>()<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1026" style='position:absolute;
+ z-index:1' from=".9pt,10.35pt" to="483.3pt,10.35pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:1;left:-1px;top:12px;width:647px;height:16px'><img
+width=647 height=4 src="12.files/image001.gif" v:shapes="_x0000_s1026"></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;<span
+class=SpellE>html</span>&gt; &lt;<span class=SpellE>head</span>&gt;<br>
+&lt;<span class=SpellE>title</span>&gt;Листинг 12-1. Использование</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>функции</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'> include()<br>
+&lt;/title&gt; &lt;body&gt; <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>&lt;?<span
+class=SpellE>php</span></span></span><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'><span style='mso-spacerun:yes'>  </span><span
+class=GramE>include</span> (&quot;ls2-2.php&quot;); <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>?&gt;
+&lt;/<span class=SpellE>body</span>&gt; &lt;/<span class=SpellE>html</span>&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1028" style='position:absolute;
+ z-index:3' from=".9pt,10.35pt" to="483.3pt,10.35pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:3;left:-1px;top:12px;width:647px;height:16px'><img
+width=647 height=4 src="12.files/image001.gif" v:shapes="_x0000_s1028"></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin:0cm;margin-bottom:.0001pt'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman";
+mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+<p><b>Листинг 2.2. Включаемый файл с
+РНР-программой<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1029" style='position:absolute;
+ z-index:4' from=".9pt,10.35pt" to="483.3pt,10.35pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:4;left:-1px;top:12px;width:647px;height:16px'><img
+width=647 height=4 src="12.files/image001.gif" v:shapes="_x0000_s1029"></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;?<span
+class=SpellE>php</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span class=SpellE><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'>print</span></span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> &quot; А меня вставили<span class=GramE> (;</span>о)&lt;<span
+class=SpellE>br</span>&gt;&quot;;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span class=SpellE><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'>print</span></span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> &quot;Да еще и считать заставили... 4 + 4 =
+&quot;.(4+4);<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>?&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1027" style='position:absolute;
+ z-index:2' from=".9pt,11.7pt" to="483.3pt,11.7pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:2;left:-1px;top:14px;width:647px;height:17px'><img
+width=647 height=3 src="12.files/image002.gif" v:shapes="_x0000_s1027"></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+
+<p>Функция</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> <span class=SpellE>include</span>()
+</span>в листинге 2.1 вставляет в документ содержание другого
+документа, который приведен в листинге 2.2. При выполнении документа из
+листинга 2.1 строки, содержащиеся во включаемом документе, выводятся на экран.
+Причем, если вы хотите, чтобы содержимое этого файла обрабатывалось как <span
+class=SpellE>РНР-программа</span>, вы должны обрамлять его начальным и
+завершающим тегами РНР. <o:p></o:p></span></p>
+
+<p>Включаемые файлы в РНР
+могут возвращать значения так же, как это делают функции. Использование
+оператора</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> <span
+class=SpellE>return</span> </span>прерывает выполнение включаемого файла,
+как это происходит с функцией. В листингах 2.3 и 2.4 приведен пример использования
+функции</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> <span
+class=SpellE>include</span>()</span>, возвращающей значение.<o:p></o:p></span></p>
+
+<p><b>Листинг 2.3. Использование
+функции</span></b><b style='mso-bidi-font-weight:normal'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> <span class=SpellE>include</span>()</span></b><b
+style='mso-bidi-font-weight:normal'><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;font-family:Arial;mso-bidi-font-family:"Times New Roman"'>, <br>
+<span style='mso-spacerun:yes'>                        </span>возвращающей
+значение<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='page-break-after:avoid'><!--[if gte vml 1]><v:line
+ id="_x0000_s1030" style='position:absolute;z-index:5' from=".9pt,11.7pt" to="483.3pt,11.7pt"
+ o:allowincell="f" strokeweight="2pt"/><![endif]--><![if !vml]><span
+style='mso-ignore:vglayout;position:relative;z-index:5;left:-1px;top:14px;
+width:647px;height:17px'><img width=647 height=3 src="12.files/image002.gif"
+v:shapes="_x0000_s1030"></span><![endif]><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;<span
+class=SpellE>html</span>&gt; &lt;<span class=SpellE>head</span>&gt; <br>
+&lt;<span class=SpellE>title</span>&gt; Листинг 2-3. Использование функции <span
+class=SpellE>include</span>(), <br>
+<span style='mso-spacerun:yes'>        </span>возвращающей значение &lt;/<span
+class=SpellE>title</span>&gt; &lt;/<span class=SpellE>head</span>&gt; &lt;<span
+class=SpellE>body</span>&gt; <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>&lt;?<span
+class=SpellE>php</span></span></span><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>$<span class=SpellE>addResult</span> = <span
+class=GramE>include(</span>&quot;ls2-4.php&quot;); <br>
+print &quot;</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Вставленный</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>файл</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>возвращает</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'> $<span class=SpellE>addResult</span>&quot;; <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>?&gt;<br>
+&lt;/<span class=SpellE>body</span>&gt; &lt;/<span class=SpellE>html</span>&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1031" style='position:absolute;
+ z-index:6' from=".9pt,11.7pt" to="483.3pt,11.7pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:6;left:-1px;top:14px;width:647px;height:17px'><img
+width=647 height=3 src="12.files/image002.gif" v:shapes="_x0000_s1031"></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin:0cm;margin-bottom:.0001pt'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman";
+mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+
+<p><b>Листинг 2.4.
+Включаемый файл, возвращающий значение<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1032" style='position:absolute;
+ z-index:7' from=".9pt,11.7pt" to="483.3pt,11.7pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:7;left:-1px;top:14px;width:647px;height:17px'><img
+width=647 height=3 src="12.files/image002.gif" v:shapes="_x0000_s1032"></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;?<span
+class=SpellE>php</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>$<span
+class=SpellE>retval</span> = <span class=GramE>( </span>4 + 4 ); <br>
+<span class=SpellE>return</span> $<span class=SpellE>retval</span>; <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>?&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Этот
+текст никогда не появится на экране, потому что он находится после оператора <span
+class=SpellE>return</span>!<o:p></o:p></span></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1033" style='position:absolute;
+ z-index:8' from=".9pt,11.7pt" to="483.3pt,11.7pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:8;left:-1px;top:14px;width:647px;height:17px'><img
+width=647 height=3 src="12.files/image002.gif" v:shapes="_x0000_s1033"></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+
+<p>Команду</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> <span class=SpellE>include</span>()
+</span>можно использовать внутри условного оператора. В таком
+случае включаемый файл будет выполняться только при выполнении условия. <o:p></o:p></span></p>
+
+<p>Например, в следующем
+фрагменте команда</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>
+<span class=SpellE>include</span>() </span>не будет выполнена.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'>$test = false; <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>if</span></span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'> ($test)<br>
+<span style='mso-spacerun:yes'>   </span>{<br>
+<span style='mso-spacerun:yes'>    </span>include(&quot;a_file.txt&quot;);<span
+style='mso-spacerun:yes'>  </span>// </span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'>не</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ansi-language:EN-US'> </span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'>будет</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>включен</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'><br>
+<span style='mso-spacerun:yes'>   </span>}<o:p></o:p></span></p>
+
+<p>Если команду</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> <span class=SpellE>include</span>()
+</span>использовать внутри цикла, то она будет выполняться при
+каждой итерации. В листинге 2.5 приведен пример того, как команда</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> <span class=SpellE>include</span>()
+</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:
+"Times New Roman"'>используется внутри цикла</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'> <span class=SpellE>for</span></span>.
+Обратите внимание на то, что при каждой итерации включается другой файл.<o:p></o:p></span></p>
+
+<p><b>Листинг 2.5. Использование</span></b><b
+style='mso-bidi-font-weight:normal'><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> <span class=SpellE>include</span>() </span></b><b style='mso-bidi-font-weight:
+normal'>внутри цикла<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1034" style='position:absolute;
+ z-index:9' from=".9pt,11.7pt" to="483.3pt,11.7pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:9;left:-1px;top:14px;width:647px;height:17px'><img
+width=647 height=3 src="12.files/image002.gif" v:shapes="_x0000_s1034"></span><![endif]><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>&lt;<span
+class=SpellE>html</span>&gt; &lt;<span class=SpellE>head</span>&gt;<br>
+&lt;<span class=SpellE>title</span>&gt; Листинг 2-5. Использование</span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'> include() <br>
+<span style='mso-spacerun:yes'>        </span></span><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt'>внутри</span><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>цикла</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> <span
+lang=EN-US>&lt;/title&gt; &lt;/head&gt; &lt;body&gt;<o:p></o:p></span></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>&lt;?<span
+class=SpellE>php</span></span></span><span lang=EN-US style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span class=GramE><span lang=EN-US style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'>for</span></span><span
+lang=EN-US style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:
+EN-US'> ($x = 1;<span style='mso-spacerun:yes'>  </span>$x&lt;=3;<span
+style='mso-spacerun:yes'>  </span>$x++)<br>
+<span style='mso-spacerun:yes'>    </span>{<br>
+<span style='mso-spacerun:yes'>     </span>$<span class=SpellE>incfile</span> =
+&quot;incfile$x&quot;.&quot;.txt&quot;;<br>
+<span style='mso-spacerun:yes'>     </span>print &quot;</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Включаем</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>файл</span><span lang=EN-US
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ansi-language:EN-US'> $<span
+class=SpellE>incfile</span>&lt;<span class=SpellE>br</span>&gt;&quot;;<br>
+<span style='mso-spacerun:yes'>     </span><span class=GramE>include(</span>&quot;$<span
+class=SpellE>incfile</span>&quot;); <br>
+<span style='mso-spacerun:yes'>     </span>print &quot;\n&lt;p&gt;&quot;;<br>
+<span style='mso-spacerun:yes'>    </span>}<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-top:2.0pt;margin-right:0cm;margin-bottom:
+2.0pt;margin-left:0cm'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>?&gt;<br>
+&lt;/<span class=SpellE>body</span>&gt; &lt;/<span class=SpellE>html</span>&gt;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><!--[if gte vml 1]><v:line id="_x0000_s1035" style='position:absolute;
+ z-index:10' from=".9pt,11.7pt" to="483.3pt,11.7pt" o:allowincell="f"
+ strokeweight="2pt"/><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+position:relative;z-index:10;left:-1px;top:14px;width:647px;height:17px'><img
+width=647 height=3 src="12.files/image002.gif" v:shapes="_x0000_s1035"></span><![endif]><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-no-proof:yes'><o:p>&nbsp;</o:p></span></p>
+
+
+
+<p>При выполнении
+программы из листинга 2.5 в те<span class=GramE>кст стр</span>аницы будут
+включены три разных файла:</span><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt'> &quot;incfile1.txt&quot;, &quot;incfile2.txt&quot; </span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'>и</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> &quot;incfile3.txt&quot;</span>.
+Если предположить, что в каждом файле содержится только объявление его
+названия, то вывод этой программы будет выглядеть так:<o:p></o:p></span></p>
+
+<p>Включаем файл incfile1.txt<br>
+incfile1<o:p></o:p></span></p>
+
+<p>Включаем файл incfile2.txt<br>
+incfile2<o:p></o:p></span></p>
+
+<p>Включаем файл incfile3.txt<br>
+incfile3<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin:0cm;margin-bottom:.0001pt;text-align:justify'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-family:"Times New Roman"'><o:p>&nbsp;</o:p></span></p>
+
+<p>В языке РНР существует
+команда</span><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> <span
+class=SpellE>require</span>()</span>, которая действует аналогично команде</span><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'> <span class=SpellE>include</span>()</span>.
+Эту команду тоже можно использовать в циклах, однако возвращать значения она не
+может.<o:p></o:p></span></p>
+
+<p><o:p>&nbsp;</o:p></span></p>
+<a name=3 class="anchor"></a>
+<h3>3.  Контрольные вопросы</h3>
+<p>1.Как осуществляется подключение к серверу базы данных и выбор базы данных? 
+<p>2.Каким образом выполнить в PHP запрос SQL? 
+<p>3.Как обработать результаты запроса SELECT ? 
+<p>4.Как получить информацию о базе данных? 
+<p>5.Какие команды используют для включения файлов в документ? 
+<br>
+<a name=4 class="anchor"></a>
+<h3>4. Задание</h3>
+<H3>№ 1</H3>
+<p>Создайте файл <b>z10-1.htm</b> с HTML-формой, позволяющей выбрать 
+<br>а) структуру (группа флажков <b>"structure"</b>) и/или 
+<br>б) содержимое (группа флажков <b>"content"</b>) 
+<br>любой таблицы базы данных <b>study</b>:
+<hr width="70%" align=left>
+<p><img src="ris/r10-1.gif">
+<hr width="70%" align=left>
+
+<p>При нажатии кнопки "Вывести" должен вызываться скрипт <b>z10-2.php</b> (для 
+передачи названий таблиц используйте метод GET):
+<hr width="70%" align=left>
+<p><img src="ris/r10-2.gif">
+<hr width="70%" align=left>
+
+<H3>№ 2</H3>
+<p>Скрипт <b>z10-2.php</b> должен быть составным, т.е. иметь вид:
+<p><img src="ris/r10-3.gif">
+<p>Именно таким образом и происходит отделение оформления страниц сайта от обращения 
+к СУБД и от собственно наполнения (контента) каждой страницы.
+<br><b>Особенно важно,</b> чтобы для инициализации обращения к базе данных 
+был один единственный inc-файл! Тогда, чтобы заменить логин и пароль доступа к БД (например, 
+при смене провайдера сайта), достаточно исправить всего один файл.
+
+<H3>№ 3</H3>
+<p>В файле <b>z10-3.inc</b> содержится раздел <b>&lt;style&gt;</b>, в котором 
+заданы CSS-стили для:
+<ul>
+<p><li>th - шрифт Arial, размер шрифта 10pt,
+<p><li>td - шрифт Courier New, размер шрифта 12pt,
+<p><li>h4 - цвет заголовка синий, размер шрифта 14pt.
+</ul>
+<p>и команды <b>&lt;/head&gt; &lt;body&gt;</b>
+
+<H3>№ 4</H3>
+<p>В файле <b>z10-4.inc</b> содержатся php-команды для 
+подключение к базе данных <b>study</b>.
+
+<H3>№ 5</H3>
+<p>В файле <b>z10-5.inc</b> содержатся функции <b>vid_structure()</b> и 
+<b>vid_content()</b> для отображения структуры и содержимого таблицы, выбранной в 
+HTML-форме (имя таблицы является аргументом функций). 
+<br>Перед вызовом функций <u>обязательно</u> проверять, заданы ли значения для переменных 
+<b>$structure</b> и <b>$content</b>.
+<p>Функция <b>vid_structure()</b> отображает структуру выбранной таблицы (использовать листинг 11-6).
+<p>Функция <b>vid_content()</b> отображает содержимое выбранной таблицы, причем в первой строке таблицы, 
+в каждой ячейке <b>&lt;th&gt;</b> сперва указаны русские названия для столбцов таблицы, 
+а через &lt;br&gt;&nbsp;&#151; 
+собственно имена столбцов. Для этого в функции создайте ассоциативный массив <b>$rus_name[]</b>, 
+в котором ключами будут имена столбцов, а значениями ключей&nbsp;&#151; русские названия этих столбцов 
+(массив должен быть <u>единый</u> для всех 3 таблиц).
+
+<p>В заголовках <b>&lt;h4&gt;</b> ("Структура таблицы&nbsp;&#133;" и "Содержимое таблицы&nbsp;&#133;") 
+должно подставляться название выбранной таблицы.
+
+<p>В конце файла <b>z10-5.inc</b> поставьте гиперссылку на <b>z10-1.htm</b> 
+("Возврат к выбору таблицы").
+
+<H3>№ 6</H3>
+<p>В файле <b>z10-6.inc</b> содержится php-команда для 
+отключения от базы данных.
+
+<p>&nbsp;
+
+<br>
+
+ 
+
+
+<br>		
+
+ </div>
+ </div>
+
+ </div>
+ </div>
+ </div>
+
+ <!--Меню навигации-->
+ <div aria-label="..." class = "nav-menu">
+ <ul class="pager background-transition-slow">
+ <li title="Наверх" style = "margin-right:15px; "><a class = "glyphicon glyphicon-menu-up page-scroll" href="#page-top"></a></li>
+ </ul>
+ </div>
+
+ </div>
+ <!-- jQuery -->
+ <script src="../lib/js/jquery.js"></script>
+
+ <!-- Bootstrap Core JavaScript -->
+ <script src="../lib/js/bootstrap.min.js"></script>
+
+ <!-- Scrolling Nav JavaScript -->
+ <script src="../lib/js/jquery.easing.min.js"></script>
+ <script src="../lib/js/scrolling-nav.js"></script>
+
+</body>
+
+</html>

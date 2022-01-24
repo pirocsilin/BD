@@ -1,0 +1,1389 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="do.sibsutis.ru">
+
+  <title>Лабораторная работа 1. Базы данных</title>
+	
+	<link rel="icon" type="image/png" href="../lib/css/favicon.png">
+  <!-- Bootstrap Core CSS -->
+  <link href="../lib/css/bootstrap.css" rel="stylesheet">
+	
+  <!-- Custom CSS -->
+  <link href="../lib/css/scrolling-nav.css" rel="stylesheet">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+  <!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+ <div class="container">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+   <li class="hidden"> <a class="page-scroll" href="#page-top"></a> </li>
+	 
+	 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+   </button>
+	 
+   <a class="navbar-brand " href="../index.htm"> 
+  <text class = "hidden-xs">Базы данных</text> 
+  <text class = "visible-xs">БД</text>
+	 </a>
+  </div>
+
+  <!-- Collect the nav links, forms, and glyphicon glyphicon-list-alt content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+   
+	 <!-- <ul class="nav navbar-nav">
+		<li><a href="#"></a></li> 
+   </ul> -->
+	
+   <ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+		<button type="button" class="navbar-toggle dropdown-toggle hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>	   
+		<a class = "dropdown-toggle visible-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Материалы</a>
+     <ul class="dropdown-menu">
+    <li><a href="../index.htm">Аннотация курса</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="lec_index.htm">Теория</a></li>
+<li><a href="labs.htm">Лабораторные работы</a></li> 
+      <li><a href="c_work.htm">Контрольная работа</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="lit.htm">Литература</a></li>
+      <!--li><a href="q.htm">Вопросы для самопроверки</a></li-->			
+     </ul>
+ </li>
+ </ul>
+  </div><!-- /.navbar-collapse -->
+ </div><!-- /.container-fluid -->
+</nav>
+
+
+  <div id="intro" class="section content-section ">
+    <div class="container">
+       <div class="row">
+        <div class="col-lg-12">	
+
+
+<!-- содержание -->	
+<div class="page-header">				
+<h3>Лабораторная работа 1. Язык MySQL</h3>
+<a href="#1">1 Теоретический материал</a><br>
+<a href="#10" class=punkt>1.0. Структура учебной базы данных </a><br>
+<a href="#11" class=punkt>1.1. Запрос данных </a><br>
+<a href="#12" class=punkt>1.2. Использование реляционных, булевых и специальных операторов </a><br>
+<a href="#13" class=punkt>1.3. Агрегатные функции </a><br>
+<a href="#14" class=punkt>1.4. Вывод данных из нескольких таблиц. Объединение таблиц с собой </a><br>
+<a href="#15" class=punkt>1.5. Вложенные запросы</a><br>
+<a href="#16" class=punkt>1.6. Создание, изменение и удаление таблиц </a><br>
+<a href="#17" class=punkt>1.7. Изменение данных в таблицах </a><br>
+<a href="#2">2 Конторольные вопросы</a><br>
+<a href="#3">3 Задание</a><br>
+
+</div>
+<!--начало-->
+<p>Структурированный язык запросов
+(Structured Query Language) SQL - это инструмент, предназначенный для обработки и чтения данных,
+содержащихся в компьютерных базах данных. Одна из функций SQL - организация связи
+через локальную сеть с сервером базы данных, в в которой хранятся совместно 
+используемые данные. Операторы SQL напоминают английские предложения, что 
+значительно облегчает их понимание и изучение.</p>
+
+<p>В настоящем курсе
+мы будем изучать версию языка, используемую  компактным многопотоковым сервером
+MySQL, предназначенным, в частности, для совместной работы с языком сценариев PHP.
+Такое сочетание позволяет  обеспечить поддержку доступа к серверам баз данных с веб-страниц.  <p>
+<br>
+<a name=1 class="anchor"></a>
+<h3><b>1 Теоретический материал</b></h3>
+<a name=10 class="anchor"></a>
+<h3>1.0. Структура учебной базы данных</h3>
+<p>1. После устанвки пакета Denwer создаем приведенную ниже базу данных - непосредственно с помощью  phpMyAdmin или используя файл ins.php, который  расположен в директории work полученного Вами задания.
+  
+<p>
+
+<b>Таблица sal - продавцы</b> <br>
+<b>snum </b> - номер продавца<br>
+<b>sname </b> - имя продавца <br>
+<b>city</b> - город, где находится продавец<br>
+<b>comm</b> - комиссионные продавца<br> 
+
+<blockquote>
+<table border=1>
+<tr>
+	<th>snum</th>
+	<th>sname</th>
+	<th>city</th>
+	<th>comm</th>
+</tr>
+<tr>
+	<td>1001</td>
+	<td>Peel</td>
+	<td>London</td>
+	<td>0.12</td>
+</tr>
+<tr>
+	<td>1002</td>
+	<td>Serres</td>
+	<td>San Jose</td>
+	<td>0.13</td>
+</tr>
+<tr>
+	<td>1004</td>
+	<td>Motica</td>
+	<td>London</td>
+	<td>0.11</td>
+</tr>
+<tr>
+	<td>1007</td>
+	<td>Rifkin</td>
+	<td>Barcelona</td>
+	<td>0.15</td>
+</tr>
+<tr>
+	<td>1003</td>
+	<td>Axelrod</td>
+	<td>New York</td>
+	<td>0.10</td>
+</tr>
+</table>
+</blockquote>
+
+<p>
+<b>Таблица cust - покупатели</b> <br>
+<b>cnum </b> - номер покупателя<br>
+<b>cname </b> - имя покупателя <br>
+<b>city</b> - город, где находится покупатель<br>
+<b>rating</b> - рейтинг покупателя<br> 
+<b>snum </b> - номер продавца, у которого покупатель сделал покупку<br>
+
+<blockquote>
+<table border=1>
+<tr>
+	<th>cnum</th>
+	<th>cname</th>
+	<th>city</th>
+	<th>rating</th>
+	<th>snum</th>
+</tr>
+<tr>
+	<td>2001</td>
+	<td>Hoffman</td>
+	<td>London</td>
+	<td>100</td>
+	<td>1001</td>
+</tr>
+<tr>
+	<td>2002</td>
+	<td>Giovanni</td>
+	<td>Rome</td>
+	<td>200</td>
+	<td>1003</td>
+</tr>
+<tr>
+	<td>2003</td>
+	<td>Liu</td>
+	<td>San Jose</td>
+	<td>200</td>
+	<td>1002</td>
+</tr>
+<tr>
+	<td>2004</td>
+	<td>Grass</td>
+	<td>Berlin</td>
+	<td>300</td>
+	<td>1002</td>
+</tr>
+<tr>
+	<td>2006</td>
+	<td>Clemens</td>
+	<td>London</td>
+	<td>100</td>
+	<td>1001</td>
+</tr>
+<tr>
+	<td>2008</td>
+	<td>Cisneros</td>
+	<td>San Jose</td>
+	<td>300</td>
+	<td>1007</td>
+</tr>
+<tr>
+	<td>2007</td>
+	<td>Pereira</td>
+	<td>Rome</td>
+	<td>100</td>
+	<td>1004</td>
+</tr>
+</table>
+</blockquote> 
+
+<p>
+<b>Таблица ord - заказы</b> <br>
+<b>onum </b> - номер заказа<br>
+<b>amt </b> - сумма заказа <br>
+<b>odate</b> - дата заказа<br>
+<b>cnum</b> - номер покупателя, который сделал заказ<br> 
+<b>snum </b> - номер продавца,  которому сделан заказ<br>
+
+<blockquote> 
+<table border=1>
+<tr>
+	<th>onum</th>
+	<th>amt</th>
+	<th>odate</th>
+	<th>cnum</th>
+	<th>snum</th>
+</tr>
+<tr>
+	<td>3001</td>
+	<td>18.69</td>
+	<td>03-OCT-90</td>
+	<td>2008</td>
+	<td>1007</td>
+</tr>
+<tr>
+	<td>3003</td>
+	<td>767.19</td>
+	<td>03-OCT-90</td>
+	<td>2001</td>
+	<td>1001</td>
+</tr>
+<tr>
+	<td>3002</td>
+	<td>1900.10</td>
+	<td>03-OCT-90</td>
+	<td>2007</td>
+	<td>1004</td>
+</tr>
+<tr>
+	<td>3005</td>
+	<td>5160.45</td>
+	<td>03-OCT-90</td>
+	<td>2003</td>
+	<td>1002</td>
+</tr>
+<tr>
+	<td>3006</td>
+	<td>1098.16</td>
+	<td>03-OCT-90</td>
+	<td>2008</td>
+	<td>1007</td>
+</tr>
+<tr>
+	<td>3009</td>
+	<td>1713.23</td>
+	<td>04-OCT-90</td>
+	<td>2002</td>
+	<td>1003</td>
+</tr>
+<tr>
+	<td>3007</td>
+	<td>75.75</td>
+	<td>04-OCT-90</td>
+	<td>2004</td>
+	<td>1002</td>
+</tr>
+<tr>
+	<td>3008</td>
+	<td>4723.00</td>
+	<td>05-OCT-90</td>
+	<td>2006</td>
+	<td>1001</td>
+</tr>
+<tr>
+	<td>3010</td>
+	<td>1309.95</td>
+	<td>06-OCT-90</td>
+	<td>2004</td>
+	<td>1002</td>
+</tr>
+<tr>
+	<td>3011</td>
+	<td>9891.88</td>
+	<td>06-OCT-90</td>
+	<td>2006</td>
+	<td>1001</td>
+</tr>
+</table>                                                               
+</blockquote> 
+<p></p>
+
+<br>
+<a name=11 class="anchor"></a>
+<h3>1.1. Запрос данных </h3>
+<p class=MsoPlainText><span style='mso-taab-count:1'>      </span>Запрос данных
+в языке <span lang=EN-US style='mso-ansi-language:EN-US'>SQL</span>
+осуществляется командой SELECT. <span style='mso-tab-count:1'>  </span>Для
+выбора всей информации из таблицы используется наиболее простая форма команды:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>SELECT * FROM
+&lt;имя_объекта&gt;;</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>где
+&lt;имя_объекта&gt; вообще говоря, имеет вид &lt;имя_базы_данных.имя_таблицы&gt;</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Например:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>SELECT * FROM sample.sal;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='text-indent:36.0pt'>В нашем случае диалоговое окно
+настроено таким образом, что имя базы данных можно опускать. </p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>    </span>&nbsp;&nbsp;Например:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>SELECT * FROM sal;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'>УПРАЖНЕНИЕ</b><b
+style='mso-bidi-font-weight:normal'><span style='mso-ansi-language:EN-US'> <span
+lang=EN-US>1.1.<o:p></o:p></span></span></b></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span></span>Просмотрите содержимое таблиц
+учебной базы данных (SAL, </p>
+
+<p class=MsoPlainText style='text-indent:36.0pt'>CUST, ORD).</p>
+
+<p class=MsoPlainText style='text-indent:36.0pt'><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span
+style='mso-spacerun:yes'>                                                                
+</span><span style='mso-spacerun:yes'>    </span></p>
+
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Для получения
+только интересующих вас данных (а не всех имеющихся в таблице) необходимо в
+команде SELECT указывать дополнительную информацию. Чтобы запросить нужные
+столбцы, их необходимо перечислить после ключевого слова SELECT через запятую. Сравните
+результаты выполнения двух команд:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>SELECT * FROM
+cust;</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>SELECT city,
+cname FROM cust;</p>
+
+<p class=MsoPlainText style='text-indent:36.0pt'>Для того, чтобы вывести данные
+из столбца БЕЗ повторяющихся значений, используется параметр DISTINCT. Сравните<span
+style='mso-ansi-language:EN-US'> </span>результаты<span style='mso-ansi-language:
+EN-US'> </span>запросов<span lang=EN-US style='mso-ansi-language:EN-US'>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span>SELECT city FROM sal;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span>SELECT DISTINCT city FROM sal;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span></span>Выбор требуемых строк
+осуществляется применением фразы WHERE &lt;условие&gt; в команде SELECT.
+Следующая команда выводит записи только о тех покупателях, которые размещаются
+в городе San Jose (Сан Хосе):</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>SELECT * FROM cust<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  
+</span>WHERE city = </span>'<st1:City w:st="on"><st1:place w:st="on"><span
+  lang=EN-US style='mso-ansi-language:EN-US'>San Jose</span></st1:place></st1:City>'<span
+lang=EN-US style='mso-ansi-language:EN-US'>;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='text-indent:36.0pt'>Для указания конкретных
+столбцов в команде SELECT необходимо знать их точное название. Команда DESCRIBE
+(или сокращенно DESC) позволяет получить имена столбцов и другую информацию о
+структуре таблиц. Например, следующая команда выводит структуру
+таблицы Заказов:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>DESC ord; </p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'>УПРАЖНЕНИЕ 1.2.<o:p></o:p></b></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Запросите
+информацию о структурах всех известных вам</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>объектов базы
+S<span lang=EN-US style='mso-ansi-language:EN-US'>AMPLE</span>.</p>
+
+<p class=MsoPlainText><span
+style='mso-spacerun:yes'>                                                                    
+</span></p>
+<a name=12 class="anchor"></a>
+<h3>1.2. Использование реляционных, булевых и специальных операторов</h3>
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+style='mso-spacerun:yes'> </span></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Реляционные
+операторы, которыми располагает SQL:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:2'>            </span>=<span
+style='mso-spacerun:yes'>      </span>- равно</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:2'>            </span>&gt;<span
+style='mso-spacerun:yes'>      </span>- больше, чем</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:2'>            </span>&lt;<span
+style='mso-spacerun:yes'>      </span>- меньше, чем</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:2'>            </span>&gt;=<span
+style='mso-spacerun:yes'>     </span>- больше или равно</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:2'>            </span>&lt;=<span
+style='mso-spacerun:yes'>     </span>- меньше или равно</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:2'>            </span>&lt;&gt;,
+!= - не равно</p>
+
+<p class=MsoPlainText><span
+style='mso-spacerun:yes'>                                                                    
+</span></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Cледующая
+команда выводит сведения о покупателях, чей рейтинг отличен от 200:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>SELECT * FROM cust WHERE rating
+&lt;&gt; 200; <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span></span>Cтандартными булевыми операторами,
+распознаваемыми SQL, являются:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:2'>            </span>AND<span
+style='mso-spacerun:yes'>  </span>- логическое И</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:2'>            </span>OR<span
+style='mso-spacerun:yes'>   </span>- логическое ИЛИ</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:2'>            </span>NOT<span
+style='mso-spacerun:yes'>  </span>- логическое ОТРИЦАНИЕ</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>В следующем
+примере показано использование реляционных и булевых операторов при указании
+условия выборки данных. Команда SELECT выбирает всех заказчиков, находящихся в
+San Jose и имеющих рейтинг выше 200:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>SELECT * FROM cust<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  
+</span>WHERE city = '<st1:City w:st="on"><st1:place w:st="on">San Jose</st1:place></st1:City>'
+AND rating &gt; 200;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>                                                                    
+</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'>УПРАЖНЕНИЕ 2.1.<o:p></o:p></b></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Выполните два
+следующих запроса и объясните результаты:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>SELECT * FROM cust<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  
+</span>WHERE NOT city = '<st1:City w:st="on"><st1:place w:st="on">San Jose</st1:place></st1:City>'
+OR rating &gt; 200;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span>SELECT * FROM cust<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  
+</span>WHERE NOT (city = '<st1:City w:st="on"><st1:place w:st="on">San Jose</st1:place></st1:City>'
+OR rating &gt; 200);<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>                                                                    
+</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span></span>Оператор IN определяет набор
+значений, в который данное значение может быть включено. В следующем примере
+запрашиваются все продавцы, размещенные в городах Barcelona или London:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>SELECT * FROM sal<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  
+</span>WHERE city IN ('<st1:City w:st="on">Barcelona</st1:City>', '<st1:City
+w:st="on"><st1:place w:st="on">London</st1:place></st1:City>'); <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'>УПРАЖНЕНИЕ 2.2.<o:p></o:p></b></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Как еще можно
+выполнить тот же запрос?</p>
+
+<p class=MsoPlainText><span
+style='mso-spacerun:yes'>                                                                    
+</span></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Оператор
+BETWEEN похож на оператор IN, но BETWEEN задает диапазон значений. После
+ключевого слова BETWEEN вводится начальное значение диапазона, затем ключевое
+слово AND и конечное значение. Следующая команда будет извлекать всех продавцов
+с комиссионными от 0.10 до 0.12:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>SELECT * FROM sal WHERE comm BETWEEN
+.10 AND .12;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>                                                                    
+</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'>УПРАЖНЕНИЕ 2.3.<o:p></o:p></b></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Повторите
+последний запрос, но поменяйте местами границы </p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>диапазона.</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+<div class=Section1>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Оператор LIKE
+используется, чтобы находить подстроки в указанном поле таблицы. Этот оператор
+применим только к полям типа CHAR или VARCHAR. В искомой строке могут
+использоваться групповые символы (wildkards):</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>- символ
+подчеркивания (_) замещает любой одиночный символ,</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>- знак
+процента (%) группу из любого числа символов.</p>
+
+<p class=MsoPlainText>В следующем примере запрашиваются сведения о всех
+покупателях, в в имени которых вторая буква i:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>SELECT * FROM cust WHERE cname LIKE
+'_i%';<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'>УПРАЖНЕНИЕ 2.4.<o:p></o:p></b></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Выведите
+сведения обо всех покупателях, чьи имена заканчиваются </p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>буквой s.</p>
+
+<p class=MsoPlainText><span
+style='mso-spacerun:yes'>                                                          
+</span><span style='mso-spacerun:yes'>          </span></p>
+<a name=13 class="anchor"></a>
+<h3>1.3. Агрегатные функции </h3>
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Агрегатные
+(общие, многострочные, групповые) функции обрабатывают множества значений всего
+столбца таблицы или группы строк. Агрегатные функции возвращают одиночное
+значение. Наиболее употребимы следующие функции:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>SUM<span
+style='mso-spacerun:yes'>   </span>- арифметическая сумма всех значений столбца</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>AVG<span
+style='mso-spacerun:yes'>   </span>- среднее значение всех значений столбца</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>MAX<span
+style='mso-spacerun:yes'>   </span>- наибольшее значение из всех значений
+столбца</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>MIN<span
+style='mso-spacerun:yes'>   </span>- наименьшее значение из всех значений
+столбца</p>
+
+<p class=MsoPlainText><span
+style='mso-spacerun:yes'>                                                                    
+</span></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Для групповых
+функций применяется следующий общий синтаксис:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>&lt;функция&gt;
+([ DISTINCT | ALL ] &lt;выражение&gt;)<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoPlainText><span
+style='mso-spacerun:yes'>                                                                    
+</span></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Агрегатные
+функции используются подобно именам полей в команде SELECT, при этом они используют
+имена полей (столбцов) как аргументы. Функции SUM и AVG могут применяться
+только к числовым полям. С<span style='mso-spacerun:yes'>  </span>MAX и<span
+style='mso-spacerun:yes'>  </span>MIN могут использоваться как числовые, так и символьные
+поля.</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Например, для
+нахождения суммы всех заказов в таблице ORD можно ввести следующий запрос:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>SELECT SUM (amt) FROM ord;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>                                                                    
+</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'>УПРАЖНЕНИЕ 3.1.<o:p></o:p></b></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Сравните и
+объясните результаты двух следующих запросов:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:2'>            </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>SELECT MAX(city) FROM sal;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:2'>            </span>SELECT MIN(city) FROM sal;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>                </span><span
+style='mso-spacerun:yes'>                                                     </span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Агрегатные функции могут
+применяться к группам строк при использовании опции GROUP BY. При этом
+автоматически выполняется разбивка на группы значений в тех столбцах, которые
+указаны как аргументы в опции GROUP BY. Например, требуется найти наиболее крупный
+заказ для каждого продавца. Можно сделать раздельный запрос для каждого из них,
+выбрав MAX(amt) из таблицы Заказов для каждого значения поля snum. Однако
+GROUP BY позволяет это сделать одной командой:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>SELECT snum,
+MAX(amt) FROM ord</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+style='mso-spacerun:yes'>   </span>GROUP BY snum;</p>
+
+<p class=MsoPlainText><span
+style='mso-spacerun:yes'>                                                                    
+</span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'>УПРАЖНЕНИЕ 3.2.<o:p></o:p></b></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Сравните
+предыдущий запрос с показанным ниже и поясните</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>разницу<span
+lang=EN-US style='mso-ansi-language:EN-US'>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:2'>            </span>SELECT snum, odate, MAX(amt)<span
+style='mso-spacerun:yes'>  </span>FROM ord<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:2'>            </span><span style='mso-spacerun:yes'>  
+</span></span>GROUP BY snum, odate;</p>
+
+<p class=MsoPlainText><span
+style='mso-spacerun:yes'>                                                                    
+</span></p>
+
+</div>
+
+
+<p class=MsoPlainText style='text-indent:36.0pt'>Таблицы - это неупорядоченные
+наборы строк. Для того чтобы выводить данные в желаемой последовательности, SQL
+использует фразу ORDER BY с опциями ASC и DESC. ASC определяет возрастающий
+порядок значений поля, а DESC - убывающий. Поля во фразе ORDER BY могут быть указаны
+по именам или по номерам. Номер указывает позицию поля в команде SELECT, а не в
+таблице. Упорядочивать можно не только поля, но и группы, определенные фразой
+GROUP BY. Следующая команда выводит данные о заказах, причем номера покупателей
+указаны в убывающем порядке:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>SELECT amt, odate, cnum FROM ord<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  
+</span>ORDER BY cnum DESC;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>                                                                    
+</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'>УПРАЖНЕНИЕ</b><b
+style='mso-bidi-font-weight:normal'><span style='mso-ansi-language:EN-US'> </span>3</b><b
+style='mso-bidi-font-weight:normal'><span lang=EN-US style='mso-ansi-language:
+EN-US'>.</span>3.<o:p></o:p></b></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span></span>Сравните и объясните результат
+выполнения предыдущей команды</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>и<span
+style='mso-ansi-language:EN-US'> </span>команды<span lang=EN-US
+style='mso-ansi-language:EN-US'>, </span>указанной<span style='mso-ansi-language:
+EN-US'> </span>ниже<span lang=EN-US style='mso-ansi-language:EN-US'>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span>SELECT amt, odate, cnum FROM ord<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  
+</span>ORDER BY cnum DESC, 1 DESC;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>                                                                    
+</span><o:p></o:p></span></p>
+
+
+<a name=14 class="anchor"></a>
+<h3>1.4. Вывод данных из нескольких таблиц. Объединение таблиц с собой</h3>
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span></span>SQL позволяет определять связи
+между таблицам и, используя эти связи, выводить данные из нескольких таблиц
+одной командой. Так как в разных таблицах могут быть столбцы с одинаковыми
+именами, имена полей в команде SELECT требуется указывать вместе с именем
+таблицы, используя точечную нотацию. Например, следующий запрос выдаст имена покупателей
+и продавцов, размещенных в одних и тех же городах: </p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>SELECT cname, sname, sal.city<span
+style='mso-spacerun:yes'>  </span>FROM sal, cust<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  
+</span>WHERE sal.city = cust.city;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>                                                                    
+</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'>УПРАЖНЕНИЕ 4.1.<o:p></o:p></b></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Измените
+предыдущую команду так, чтобы из перечня городов</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>был исключен
+Лондон, и сравните результаты запросов.</p>
+
+<p class=MsoPlainText><span
+style='mso-spacerun:yes'>                                                                    
+</span></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Объединение
+таблиц с собой может быть представлено как объединение двух копий одной и той
+же таблицы. Таблицы на самом деле не копируются, но SQL выполняет команды так,
+как если бы это было сделано.</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Когда таблица
+объединяется с собой, все имена столбцов дополняются префиксами имен
+экземпляров таблиц. Столбцы каждого экземпляра таблицы должны иметь свой префикс,
+так как каждый экземпляр таблицы должен иметь свое имя. Для образования этих
+имен используют механизм определения псевдонимов. Псевдонимы таблиц определяются
+во фразе FROM команды SELECT, и такие псевдонимы существуют только пока команда
+выполняется.</p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><o:p>&nbsp;</o:p></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>В следующем
+примере выбираются все пары покупателей, имеющих один и тот же рейтинг, причем
+SQL ведет себя так, как если бы он соединял две таблицы - first и second:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>SELECT first.cname, second.cname,
+first.rating<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  
+</span>FROM cust first, cust second<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  
+</span>WHERE first.rating = second.rating;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'>УПРАЖНЕНИЕ 4.2.<o:p></o:p></b></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Сравните и
+объясните результаты выполнения предыдущей</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>команды и
+команды, приведенной ниже:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>SELECT first.cname, second.cname,
+first.rating<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  
+</span>FROM cust first, cust second<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  
+</span>WHERE first.rating = second.rating<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>    
+</span>AND first.cname &lt; second.cname;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>                                                                    
+</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span></span>Не всегда обязательно использовать
+каждый псевдоним или таблицу, которые упомянуты во фразе FROM, среди выводимых
+командой SELECT полей. Иногда псевдонимы определяются исключительно потому, что
+они требуются только во фразе WHERE, т.е. для определения условий выбора строк.</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Например,
+следующий запрос находит всех покупателей, живущих в городах, в которых
+продавец Motica (с номером 1004) имеет своих покупателей:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>SELECT b.cnum, b.cname<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  
+</span>FROM cust a, cust b<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  
+</span>WHERE a.snum = 1004<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>    
+</span>AND b.city = a.city;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>                                                     
+</span><span style='mso-spacerun:yes'>               </span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'>УПРАЖНЕНИЕ 4.3.<o:p></o:p></b></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Выполните
+такой же запрос для продавца Serres и поясните </p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>результат. </p>
+
+<p class=MsoPlainText><span
+style='mso-spacerun:yes'>                                                                    
+</span></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Язык SQL
+позволяет создавать объединения, которые включают и различные таблицы, и псевдонимы
+одной и той же таблицы. Следующий запрос объединяет таблицу Покупателей с
+собой, чтобы найти все пары покупателей, обслуживаемых одним продавцом. Кроме
+того, этот запрос объединяет таблицу Покупателей с таблицей Продавцов по номеру
+продавца для выбора имени продавца:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>SELECT sname, sal.snum, a.cname,
+b.cname<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  
+</span>FROM cust a, cust b, sal<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  
+</span>WHERE a.snum = b.snum<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>    
+</span>AND sal.snum = a.snum;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span
+style='mso-spacerun:yes'>                                                            
+</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText>Если же в предыдущем запросе добавить<span
+style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoPlainText style='margin-top:3.0pt;margin-right:0cm;margin-bottom:
+3.0pt;margin-left:0cm'><span style='mso-tab-count:1'>      </span><span
+style='mso-spacerun:yes'>    </span><span style='mso-spacerun:yes'> </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>AND a.cname &lt;&gt; b.cname;<o:p></o:p></span></p>
+
+<p class=MsoPlainText>то можно исключить избыточные строки (т.е. пары
+покупателей сами с собой).</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+style='mso-spacerun:yes'>                                                            
+</span></p>
+<a name=15 class="anchor"></a>
+<h3>1.5. Вложенные запросы</h3>
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Язык SQL
+позволяет вкладывать один запрос внутрь другого. Чтобы выполнить внешний
+(основной) запрос, SQL сначала должен выполнить внутренний запрос (подзапрос).
+Предположим, что требуется извлечь все заказы из таблицы Заказов для продавца
+Motica. Если мы знаем его номер (1004), то это можно сделать с помощью
+следующего запроса:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>SELECT * FROM ord WHERE snum = 1004;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>                                                                    
+</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText>Допустим, что номер продавца Motica нам неизвестен, тогда
+можно</p>
+
+<p class=MsoPlainText>использовать подзапрос для решения той же задачи:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>SELECT * FROM ord WHERE snum =<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  
+</span>(SELECT snum FROM sal WHERE sname = 'Motica');<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>                                                                    
+</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'>УПРАЖНЕНИЕ 5.1.<o:p></o:p></b></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Получите с
+помощью подзапроса все заказы покупателя Grass. </p>
+
+<p class=MsoPlainText><span
+style='mso-spacerun:yes'>                                                                    
+</span></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>В предыдущем
+примере использован подзапрос, который возвращает единственное значение (одну
+строку). Для того, чтобы воспользоваться подзапросом, возвращающим больше
+одного значения, применяют оператор IN. Следующая команда выбирает все заказы
+для продавцов из Лондона.</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>SELECT * FROM
+ord WHERE snum IN</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+style='mso-spacerun:yes'>   </span><span lang=EN-US style='mso-ansi-language:
+EN-US'>(SELECT snum FROM sal WHERE city = '<st1:City w:st="on"><st1:place
+ w:st="on">London</st1:place></st1:City>');<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>                                                                    
+</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'>УПРАЖНЕНИЕ 5.2.<o:p></o:p></b></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Выполните упражнение
+5.1 с использованием оператора IN.</p>
+
+<p class=MsoPlainText><span style='mso-spacerun:yes'>                       
+</span><span
+style='mso-spacerun:yes'>                                             </span></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span></p>
+<a name=16 class="anchor"></a>
+<h3>1.6.  Создание, изменение и  удаление таблиц </h3>
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Команды
+создания, изменения и удаления таблиц относятся к группе команд SQL, называемой
+языком определения данных - DDL (Data Definition Language). Таблицы создаются
+командой CREATE TABLE. В простейшем случае команда определяет имя таблицы,
+имена столбцов, а также типы и размеры данных для столбцов. В примере показано
+создание таблицы MYTAB, включающей три столбца:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>CREATE TABLE
+mytab</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+lang=EN-US style='mso-ansi-language:EN-US'><span style='mso-spacerun:yes'> 
+</span>(col1 INT(3) NOT NULL,<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  
+</span>col2 VARCHAR (10) NOT NULL,<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>   </span></span>col3
+DATE); </p>
+
+<p class=MsoPlainText><span
+style='mso-spacerun:yes'>                                               
+</span><span style='mso-spacerun:yes'>                     </span></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Обратите внимание, что команды
+создания, изменения и удаления таблиц  (равно как и команды  изменений данных в таблицах) не приводят к выводу данных на экран.</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Для удаления
+таблицы из базы данных можно использовать команду DROP TABLE.</p>
+
+<p class=MsoPlainText><span
+style='mso-spacerun:yes'>                                                                    
+</span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'>УПРАЖНЕНИЕ 6.1.<o:p></o:p></b></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Удалите таблицу MYTAB
+и создайте другую, с именем TAB1 и </p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>с той же
+структурой. Убедитесь, что в словаре базы данных</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>указана новая
+таблица. Выведите ее структуру.</p>
+
+<p class=MsoPlainText><span style='mso-spacerun:yes'>        </span><span
+style='mso-spacerun:yes'>                                                             </span></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Команда CREATE
+TABLE создает пустую таблицу. Для наполнения таблицы данными их можно загружать
+в таблицу при ее создании. Для этого в команде CREATE TABLE используют фразу AS
+SELECT..., которая позволяет копировать данные из другой, уже существующей таблицы.
+В этом случае структура создаваемой таблицы будет идентична (полностью или
+частично) структуре этой другой таблицы. </p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>В следующем
+примере показано, как при создании таблицы TAB2 в нее загружаются все данные из
+таблицы SАL:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>CREATE TABLE tab2<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  
+</span>AS SELECT * FROM sal;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>                                                                    
+</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'>УПРАЖНЕНИЕ 6.2.<o:p></o:p></b></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Создайте новую
+таблицу и скопируйте в нее первые два столбца</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>из таблицы
+SAL. Выведите структуру и содержимое вновь</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>созданной
+таблицы.</p>
+
+<p class=MsoPlainText><span
+style='mso-spacerun:yes'>                                                                    
+</span></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Структура
+существующей таблицы может быть изменена командой ALTER TABLE. Добавление
+столбцов в конец таблицы или увеличение размера типа данных можно выполнять,
+даже если в таблице имеются данные. Ниже приведены два примера модификации</p>
+
+<p class=MsoPlainText>таблицы. В первом примере добавляется столбец к таблице
+ТАВ1, во втором - увеличивается размер столбца CITY таблицы ТАВ2:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>ALTER TABLE tab1 ADD colnew
+CHAR(10);<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span>ALTER TABLE tab2 MODIFY city VARCHAR(20);<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>                                                                    
+</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'>УПРАЖНЕНИЕ 6.3.<o:p></o:p></b></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Модифицируйте
+таблицу, которую вы создали в упражнении 6.2 </p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>следующим образом:
+увеличьте размер второго столбца, добавьте</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span> два новых столбца к
+таблице. Выведите структуру таблицы </p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>после модификации. </p>
+
+<p class=MsoPlainText><span
+style='mso-spacerun:yes'>                                                                    
+</span></p>
+<a name=17 class="anchor"></a>
+<h3>1.7.  Изменение данных в таблицах</h3>
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Для вставки в
+таблицу базы данных новых строк можно использовать команду INSERT. Команда
+INSERT применяется в двух вариантах в зависимости от того, нужно ли вставить в
+таблицу одну строку или сразу несколько строк. Например, приведенная команда
+добавит строку в таблицу TB1 с пустыми значениями для третьего и четвертого
+столбцов:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>INSERT INTO tb1<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  
+</span>VALUES (100, 1012, NULL, NULL); <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>                                                                    
+</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span></span>В следующем примере показан второй
+вариант команды INSERT: команда вставляет строки в таблицу TAB2, копируя их из таблицы
+SAL</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+lang=EN-US style='mso-ansi-language:EN-US'>INSERT INTO tab2<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span><span style='mso-spacerun:yes'>  
+</span>SELECT * FROM sal;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-spacerun:yes'>                                                                    
+</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'>УПРАЖНЕНИЕ 7.1.<o:p></o:p></b></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Создайте две
+таблицы с одинаковой структурой. Вставьте</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>две строки в
+первую таблицу, используя первый вариант </p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>команды
+INSERT. Скопируйте строки из первой таблицы во</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>вторую,
+применив второй вариант команды.<span style='mso-spacerun:yes'>  </span></p>
+
+<p class=MsoPlainText><span
+style='mso-spacerun:yes'>                                                                    
+</span></p>
+
+<p class=MsoPlainText><span style='mso-spacerun:yes'>      </span><span
+style='mso-tab-count:1'>      </span>Для удаления строк из таблиц можно
+использовать команды DELETE и TRUNCATE. При помощи команды DELETE можно удалить
+все строки из таблицы (если не использовать фразу WHERE) или только строки,
+удовлетворяющие условию во фразе WHERE. Команда TRUNCATE всегда удаляет все
+строки из таблицы.</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Примеры<span
+lang=EN-US style='mso-ansi-language:EN-US'>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span>DELETE FROM tab1;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span>DELETE FROM tab2 WHERE snum=1003;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=EN-US style='mso-ansi-language:EN-US'><span
+style='mso-tab-count:1'>      </span></span>TRUNCATE TABLE <span lang=EN-US
+style='mso-ansi-language:EN-US'>tab</span>2;</p>
+
+<p class=MsoPlainText><span
+style='mso-spacerun:yes'>                                                                    
+</span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'>УПРАЖНЕНИЕ 7.2.<o:p></o:p></b></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Удалите все
+строки из первой таблицы, созданной </p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>в упражнении 7.1. В вашей копии
+таблицы Продавцов (TAB2) </p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>удалите только одну
+строку, в которой город - San Jose. </p>
+
+<p class=MsoPlainText><span
+style='mso-spacerun:yes'>                                                                    
+</span></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Для изменения
+полей существующих в таблице строк используют команду UPDATE. Эта команда
+обновляет поля для всех строк, удовлетворяющих условию во фразе WHERE. В
+следующем примере команда изменяет название города:</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>UPDATE tab2</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+style='mso-spacerun:yes'>   </span>SET city = 'Paris'</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span><span
+style='mso-spacerun:yes'>   </span>WHERE snum = '1002';</p>
+
+<p class=MsoPlainText><span
+style='mso-spacerun:yes'>                                                                    
+</span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'>УПРАЖНЕНИЕ 7.3.<o:p></o:p></b></p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>Скопируйте
+таблицу SAL под именем MYSAL и увеличьте</p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>в своей копии
+комиссионные на 0.01 у продавцов, работающих </p>
+
+<p class=MsoPlainText><span style='mso-tab-count:1'>      </span>в городе Лондон. </p>
+
+<p class=MsoPlainText><span
+style='mso-spacerun:yes'>                                                                    
+</span></p>
+<a name=2 class="anchor"></a>
+<h3><b>2 Конторольные вопросы</b></h3>
+<p>1.Назовите команды, позволяющие просматривать содержимое таблиц и получать информацию об их структуре.</p> 
+<p>2.Перечислите известные вам реляционные, булевы и специальные операторы языка MySQL. </p>
+<p>3.Каким образом агрегатные функции применяются к группам строк? </p>
+<p>4.Для чего служит механизм определения псевдонимов таблиц? </p>
+<p>5.Назовите команды создания, изменения и удаления таблиц. </p>
+<p>6.Перечислите команды изменения данных в таблицах. </p>
+<br>
+<a name=3 class="anchor"></a>
+<h3><b>3 Задание</b></h3>
+<p>В файл <b>z1-1.txt</b> занесите ответы на следующие вопросы: 
+<p>
+<ol>
+<li> Напишите запрос, который выводит
+    все строки из таблицы Покупателей, для которых номер 
+    продавца равен 1001.
+<p><li>Напишите запрос, который выводит 
+    таблицу Продавцов со столбцами в следующем порядке: city, sname,
+    snum, comm.
+<p><li> Напишите запрос, который
+    выводит оценку (rating), сопровождаемую именем каждого 
+    покупателя в городе San Jose.
+<p><li> Напишите запрос, который выводит
+    значение номера продавца всех продавцов из таблицы Заказов 
+    без каких бы то ни было повторений.
+<p><li>   Напишите запрос, который может выдать вам
+    поля sname и city для всех продавцов в Лондоне с комиссионными
+    строго больше 0.11
+<p><li> Напишите запрос к таблице Покупателей, который
+     может вывести данные обо всех покупателях с рейтингом меньше или 
+   равным 200, если они не находятся в Риме
+<p><li>Запросите двумя способами все заказы на 3 и
+    5 октября 1990 г.
+<p><li> Напишите запрос, который может вывести всех
+    покупателей, чьи имена начинаются с буквы, попадающей в
+    диапазон от A до G.
+<p><li>     Напишите запрос, который выберет всех
+    продавцов, имена которых содержат букву e.
+<p><li> Напишите запрос, который сосчитал бы сумму всех заказов
+    на 3 октября 1990 г.
+<p><li> Напишите запрос, который сосчитал бы сумму всех 
+заказов для продавца с номером 1001
+<p><li>  Напишите запрос, который выбрал бы наибольший заказ 
+для каждого продавца.
+<p><li> Напишите запрос, который выбрал бы покупателя, чье имя является первым 
+в алфавитном порядке среди имен, заканчивающихся на букву s.
+<p><li>    Напишите запрос, который выбрал бы средние комиссионные в каждом городе.
+<p><li>   Напишите запрос, который вывел бы для каждого заказа на 3 октября 
+его номер, стоимость заказа в евро (1$=0.8 евро), 
+имя продавца и размер комиссионных, полученных продавцом за этот заказ. 
+<p><li>    Напишите запрос, который выводит номера заказов в возрастающем 
+порядке, а также имена продавцов и покупателей  заказов, 
+продавец которых находится  в Лондоне или Риме.
+<p><li>   Запросите имена продавцов в алфавитном порядке, 
+суммарные значения их заказов, 
+совершенных до 5 октября, и полученные комиссионные.
+<p><li>  Выведите номера заказов, их стоимость и имена продавцов и покупателей,
+если продавцы и покупатели находятся в городах, чьи названия начинаются с букв из диапазона от L до R.
+<p><li>    Запросите все пары покупателей, обслуживаемые одним и тем же 
+продавцом. Исключите комбинации 
+покупателей с самими собой, а также пары в обратном порядке.
+<p><li>  С помощью подзапроса выведите имена всех покупателей, 
+чьи продавцы имеют комиссионные меньше 0.13. 
+<p><li>  Напишите команду, создающую копию таблицы Продавцов 
+с одновременным копированием данных из SAMPLE.SAL. 
+Убедитесь в сходности структур таблиц при помощи команды DESC 
+и идентичности данных в таблице-оригинале и таблице-копии.
+<p><li>Напишите последовательность команд, которая вставляет две новые записи в 
+вашу таблицу Продавцов, выводит таблицу после вставки, 
+удаляет одну запись о новом продавце и вновь выводит таблицу. 
+<p><li> Напишите последовательность команд, которая вставляет
+ две строки в вашу таблицу Продавцов, увеличивает
+ в 2 раза комиссионные у всех продавцов 
+и выводит содержимое таблицы после каждого изменения. 
+</ol>
+<p>
+
+
+<br><br>
+<!--конец-->
+      
+				
+
+				</div>
+			</div>
+			
+      </div>
+    </div>
+  </div>
+	
+	<!--Меню навигации по Темам -->	
+	<div aria-label="..." class = "nav-menu">
+	 <ul class="pager background-transition-slow">
+		 <li title="Наверх" style = "margin-right:15px;	"><a class = "glyphicon glyphicon-menu-up page-scroll" href="#page-top"></a></li>
+		 <li title="К предыдущей лекции"><a class = "glyphicon glyphicon-menu-left page-scroll" href="labs.htm"></a></li>
+		 <li title="В содержание"><a class = "glyphicon glyphicon-list-alt" href="labs.htm"></a></li>
+		 <li title="К следующей лекции"><a class = "glyphicon glyphicon-menu-right page-scroll" href="lab2.htm"></a></li>
+	 </ul>
+	</div>
+	<!---->
+	
+	</div>
+  <!-- jQuery -->
+  <script src="../lib/js/jquery.js"></script>
+
+  <!-- Bootstrap Core JavaScript -->
+  <script src="../lib/js/bootstrap.min.js"></script>
+
+  <!-- Scrolling Nav JavaScript -->
+  <script src="../lib/js/jquery.easing.min.js"></script>
+  <script src="../lib/js/scrolling-nav.js"></script>
+
+</body>
+
+</html>
